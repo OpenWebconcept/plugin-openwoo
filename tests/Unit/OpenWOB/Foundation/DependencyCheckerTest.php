@@ -1,12 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace Yard\OpenWOB\Tests\Foundation;
+namespace Yard\OpenWOO\Tests\Foundation;
 
 use Mockery as m;
 use WP_Mock;
-use Yard\OpenWOB\Foundation\DependencyChecker;
-use Yard\OpenWOB\Foundation\DismissableAdminNotice;
-use Yard\OpenWOB\Tests\TestCase;
+use Yard\OpenWOO\Foundation\DependencyChecker;
+use Yard\OpenWOO\Foundation\DismissableAdminNotice;
+use Yard\OpenWOO\Tests\TestCase;
 
 class DependencyCheckerTest extends TestCase
 {

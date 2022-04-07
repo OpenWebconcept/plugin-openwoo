@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace Yard\OpenWOB\Tests\Foundation;
+namespace Yard\OpenWOO\Tests\Foundation;
 
-use Yard\OpenWOB\Foundation\Config;
-use Yard\OpenWOB\Tests\TestCase;
+use Yard\OpenWOO\Foundation\Config;
+use Yard\OpenWOO\Tests\TestCase;
 
 class ConfigTest extends TestCase
 {

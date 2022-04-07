@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Yard\OpenWOB\Tests;
+namespace Yard\OpenWOO\Tests;
 
 use PHPUnit\Framework\TestCase as PHPUnit;
 

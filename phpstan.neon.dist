@@ -23,7 +23,7 @@ parameters:
 #        - %currentWorkingDirectory%/tests/phpstan/PLUGIN-stubs.php
 #        - %currentWorkingDirectory%/myplugin-functions.php
     ignoreErrors:
-        - '#Call to method get\(\) on an unknown class Yard\\OpenWOB\\Config\.#'
+        - '#Call to method get\(\) on an unknown class Yard\\OpenWOO\\Config\.#'
         # Uses func_get_args()
         #- '#^Function do_action(_ref_array)? invoked with [3456] parameters, 1-2 required\.$#'
         #- '#^Function current_user_can invoked with 2 parameters, 1 required\.$#'

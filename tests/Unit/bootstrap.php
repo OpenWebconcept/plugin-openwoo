@@ -21,12 +21,12 @@ array_map(function ($file) {
 
 define('WP_PLUGIN_DIR', __DIR__);
 define('WP_DEBUG', false);
-define('OW_FILE', __FILE__);
-define('OW_SLUG', basename(__FILE__, '.php'));
-define('OW_LANGUAGE_DOMAIN', OW_SLUG);
-define('OW_DIR', basename(__DIR__));
-define('OW_ROOT_PATH', __DIR__);
-define('OW_VERSION', '1.0.9');
+define('OWO_FILE', __FILE__);
+define('OWO_SLUG', basename(__FILE__, '.php'));
+define('OWO_LANGUAGE_DOMAIN', OWO_SLUG);
+define('OWO_DIR', basename(__DIR__));
+define('OWO_ROOT_PATH', __DIR__);
+define('OWO_VERSION', '1.0.10');
 
 /**
  * Bootstrap WordPress Mock.
@@ -34,8 +34,8 @@ define('OW_VERSION', '1.0.9');
 \WP_Mock::setUsePatchwork(true);
 \WP_Mock::bootstrap();
 
-$GLOBALS[OW_LANGUAGE_DOMAIN] = [
-    'active_plugins' => [OW_DIR . '/' . OW_FILE],
+$GLOBALS[OWO_LANGUAGE_DOMAIN] = [
+    'active_plugins' => [OWO_DIR . '/' . OWO_FILE],
 ];
 
 if (!function_exists('get_echo')) {

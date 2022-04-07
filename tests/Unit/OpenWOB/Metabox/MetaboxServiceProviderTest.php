@@ -1,13 +1,13 @@
 <?php declare(strict_types=1);
 
-namespace Yard\OpenWOB\Metabox;
+namespace Yard\OpenWOO\Metabox;
 
 use Mockery as m;
 use WP_Mock;
-use Yard\OpenWOB\Foundation\Config;
-use Yard\OpenWOB\Foundation\Loader;
-use Yard\OpenWOB\Foundation\Plugin;
-use Yard\OpenWOB\Tests\TestCase;
+use Yard\OpenWOO\Foundation\Config;
+use Yard\OpenWOO\Foundation\Loader;
+use Yard\OpenWOO\Foundation\Plugin;
+use Yard\OpenWOO\Tests\TestCase;
 
 class MetaboxServiceProviderTest extends TestCase
 {
@@ -83,7 +83,7 @@ class MetaboxServiceProviderTest extends TestCase
         $config->shouldReceive('get')->with('metaboxes')->once()->andReturn($configMetaboxes);
 
         //test for filter being called
-        \WP_Mock::expectFilter('yard/openwob/before-register-metaboxes', $expectedMetaboxes);
+        \WP_Mock::expectFilter('yard/openwoo/before-register-metaboxes', $expectedMetaboxes);
 
         $this->assertEquals($expectedMetaboxes, $service->registerMetaboxes([]));
 

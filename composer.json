@@ -1,6 +1,6 @@
 {
-  "name": "plugin/openwob",
-  "description": "OpenWOB plugin",
+  "name": "plugin/openwoo",
+  "description": "OpenWOO plugin",
   "license": "MIT",
   "authors": [
     {
@@ -39,12 +39,12 @@
   },
   "autoload": {
     "psr-4": {
-      "Yard\\OpenWOB\\": "./src/OpenWOB"
+      "Yard\\OpenWOO\\": "./src/OpenWOO"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Yard\\OpenWOB\\Tests\\": "./tests/Unit/OpenWOB"
+      "Yard\\OpenWOO\\Tests\\": "./tests/Unit/OpenWOO"
     }
   },
   "scripts": {

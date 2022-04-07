@@ -2,7 +2,7 @@
 
 return [
     'indexables' => [
-        'openwob-item'
+        'openwoo-item'
     ],
     'postStatus' => [
         'publish'
@@ -16,6 +16,6 @@ return [
         'weight' => 2
     ],
     'mapping' => [
-        'file' => OW_ROOT_PATH . '/src/OpenWOB/ElasticPress/mappings/7-0.php'
+        'file' => OWO_ROOT_PATH . '/src/OpenWOO/ElasticPress/mappings/7-0.php'
     ]
 ];

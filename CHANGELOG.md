@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## Version 1.0.10
+
+- Refactor: name change OpenWOB becomes OpenWOO
+
 ## Version 1.0.9
 
 - Fix: Elasticpress filter 'epwr_decay' expects float value instead of int.

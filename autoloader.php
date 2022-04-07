@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Yard\OpenWOB;
+namespace Yard\OpenWOO;
 
 class Autoloader
 {
@@ -16,7 +16,7 @@ class Autoloader
             $namespace = str_replace("\\", "/", __NAMESPACE__);
             $className = str_replace("\\", "/", $className);
             $class = $baseDir.(empty($namespace) ? "" : $namespace."/").$className.'.php';
-            $class = str_replace('/Yard/OpenWOB/Yard/OpenWOB/', '/OpenWOB/', $class);
+            $class = str_replace('/Yard/OpenWOO/Yard/OpenWOO/', '/OpenWOO/', $class);
             if (file_exists($class)) {
                 require_once($class);
             }

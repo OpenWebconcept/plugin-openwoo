@@ -20,7 +20,7 @@
     </testsuites>
     <coverage processUncoveredFiles="false">
         <include>
-            <directory suffix=".php">./src/OpenWOB</directory>
+            <directory suffix=".php">./src/OpenWOO</directory>
         </include>
         <exclude>
             <file>./tests/bootstrap.php</file>

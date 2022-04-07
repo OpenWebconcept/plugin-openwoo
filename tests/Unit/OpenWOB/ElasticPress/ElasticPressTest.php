@@ -1,16 +1,16 @@
 <?php declare(strict_types=1);
 
-namespace Yard\OpenWOB\Tests\ElasticPress;
+namespace Yard\OpenWOO\Tests\ElasticPress;
 
 use Mockery as m;
 use WP_Mock;
-use Yard\OpenWOB\ElasticPress\ElasticPress;
-use Yard\OpenWOB\Foundation\Config;
-use Yard\OpenWOB\Foundation\Loader;
-use Yard\OpenWOB\Foundation\Plugin;
-use Yard\OpenWOB\Models\Item;
-use Yard\OpenWOB\Repository\OpenWOBRepository;
-use Yard\OpenWOB\Tests\TestCase;
+use Yard\OpenWOO\ElasticPress\ElasticPress;
+use Yard\OpenWOO\Foundation\Config;
+use Yard\OpenWOO\Foundation\Loader;
+use Yard\OpenWOO\Foundation\Plugin;
+use Yard\OpenWOO\Models\Item;
+use Yard\OpenWOO\Repository\OpenWOORepository;
+use Yard\OpenWOO\Tests\TestCase;
 
 class ElasticPressTest extends TestCase
 {
@@ -35,7 +35,7 @@ class ElasticPressTest extends TestCase
         WP_Mock::setUp();
 
         $this->config = m::mock(Config::class);
-        $this->repository = m::mock(OpenWOBRepository::class);
+        $this->repository = m::mock(OpenWOORepository::class);
 
         $this->plugin = m::mock(Plugin::class);
         $this->plugin->config = $this->config;

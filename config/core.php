@@ -9,8 +9,8 @@ return [
         /**
          * Global providers.
          */
-        Yard\OpenWOB\OpenWOBServiceProvider::class,
-        Yard\OpenWOB\ElasticPress\ElasticPressServiceProvider::class,
+        Yard\OpenWOO\OpenWOOServiceProvider::class,
+        Yard\OpenWOO\ElasticPress\ElasticPressServiceProvider::class,
         /**
          * Providers specific to the admin.
          */

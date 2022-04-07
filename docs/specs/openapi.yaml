@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-    title: "OpenWebConcept OpenWOB API"
+    title: "OpenWebConcept OpenWOO API"
     termsOfService: "https://www.openwebconcept.nl/"
     contact:
         name: OpenWebConcept
@@ -16,16 +16,16 @@ info:
         $ref: ../chapters/description.md
     x-externalDocs:
         description: "Find out how to create Github repo for your OpenAPI spec."
-        url: "https://openwebconcept.bitbucket.io/openwob/"
+        url: "https://openwebconcept.bitbucket.io/openwoo/"
 servers:
-    - url: "https://{site}/wp-json/yard/openwob/v1"
+    - url: "https://{site}/wp-json/yard/openwoo/v1"
       description: ""
 paths:
     /items:
         get:
             tags:
                 - API
-            description: "Get all openWOB items"
+            description: "Get all openWOO items"
             operationId: getItems
             parameters:
                 - name: "filter[]"
@@ -59,12 +59,12 @@ paths:
         get:
             tags:
                 - API
-            description: "Get openWOB item by UUID"
+            description: "Get openWOO item by UUID"
             operationId: getItem
             parameters:
                 - name: UUID
                   in: path
-                  description: "UUID of OpenWOB item"
+                  description: "UUID of OpenWOO item"
                   required: true
                   schema:
                       type: string
@@ -76,29 +76,29 @@ paths:
                     content:
                         application/json:
                             schema:
-                                $ref: "#/components/schemas/OpenWOB"
+                                $ref: "#/components/schemas/OpenWOO"
                             examples:
                                 "200":
                                     summary: ""
                                     value: { name: 1 }
                 "404":
-                    description: "OpenWOB not found"
+                    description: "OpenWOO not found"
                     content:
                         application/json:
                             schema:
                                 type: object
 components:
     schemas:
-        OpenWOB:
-            title: "OpenWOB model"
+        OpenWOO:
+            title: "OpenWOO model"
             type: object
         repository: {}
         Response:
             properties:
-                WOBverzoeken:
+                WOOverzoeken:
                     type: array
                     items:
-                        $ref: "#/components/schemas/OpenWOB"
+                        $ref: "#/components/schemas/OpenWOO"
                 pagination:
                     type: array
                     items: {}
