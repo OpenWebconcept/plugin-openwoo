@@ -13,7 +13,7 @@ use Yard\OpenWOO\Foundation\ServiceProvider;
  *  ),
  *  @OA\Info(
  *    title="OpenWebConcept OpenWOO API",
- *    version="1.0.10",
+ *    version="1.0.11",
  *    termsOfService="https://www.openwebconcept.nl/",
  *    @OA\Contact(
  *      name="OpenWebConcept",

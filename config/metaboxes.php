@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
 return [
-    'wob_base' => [
+    'woo_base' => [
         'id'         => 'openwoo_metadata',
         'title'      => __('Data', OWO_LANGUAGE_DOMAIN),
         'post_types' => ['openwoo-item'],

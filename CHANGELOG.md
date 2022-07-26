@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## Version 1.0.11
+
+- Refactor: config metaboxes array key
+
 ## Version 1.0.10
 
 - Refactor: name change OpenWOB becomes OpenWOO
