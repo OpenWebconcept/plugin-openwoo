@@ -1,0 +1,21 @@
+name: "plugin-openwoo"
+
+publiccodeYmlVersion: 1.0
+url: "https://github.com/OpenWebconcept/plugin-openwoo"
+
+platforms:
+  - "web"
+
+categories:
+  - "application-development"
+
+softwareType: "softwareAddon"
+
+description:
+  localisedName: "OpenWOO"
+  shortDescription: "Middels deze plugin kan je OpenWOO verzoeken binnen de  OpenPub toevoegen en beheren."
+  longDescription: "Middels deze plugin kan je OpenWOO verzoeken binnen de  OpenPub toevoegen en beheren."
+
+nl:
+  commonground:
+    layerType: "service"
