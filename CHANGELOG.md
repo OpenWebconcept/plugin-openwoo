@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## Version 1.0.12
+
+- Feat: disable Elasticpress filters when `yard-elasticsearch` is active.
+
 ## Version 1.0.11
 
 - Refactor: config metaboxes array key
