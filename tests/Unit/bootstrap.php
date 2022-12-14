@@ -26,7 +26,7 @@ define('OWO_SLUG', basename(__FILE__, '.php'));
 define('OWO_LANGUAGE_DOMAIN', OWO_SLUG);
 define('OWO_DIR', basename(__DIR__));
 define('OWO_ROOT_PATH', __DIR__);
-define('OWO_VERSION', '1.0.12');
+define('OWO_VERSION', '1.0.13');
 
 /**
  * Bootstrap WordPress Mock.

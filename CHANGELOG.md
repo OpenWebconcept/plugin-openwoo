@@ -1,56 +1,60 @@
 # CHANGELOG
 
+## Version 1.0.13
+
+-   Fix: improper casting
+
 ## Version 1.0.12
 
-- Feat: disable Elasticpress filters when `yard-elasticsearch` is active.
+-   Feat: disable Elasticpress filters when `yard-elasticsearch` is active.
 
 ## Version 1.0.11
 
-- Refactor: config metaboxes array key
+-   Refactor: config metaboxes array key
 
 ## Version 1.0.10
 
-- Refactor: name change OpenWOB becomes OpenWOO
+-   Refactor: name change OpenWOB becomes OpenWOO
 
 ## Version 1.0.9
 
-- Fix: Elasticpress filter 'epwr_decay' expects float value instead of int.
+-   Fix: Elasticpress filter 'epwr_decay' expects float value instead of int.
 
 ## Version 1.0.8
 
-- Feat: add config taxonomies and register per CPT.
+-   Feat: add config taxonomies and register per CPT.
 
 ## Version 1.0.7
 
-- Fix: don't overwrite UUID after generation
+-   Fix: don't overwrite UUID after generation
 
 ## Version 1.0.6
 
-- Chore: add per_page as alias for limit
+-   Chore: add per_page as alias for limit
 
 ## Version 1.0.5
 
-- Chore: format labels in admin.
+-   Chore: format labels in admin.
 
 ## Version 1.0.4
 
-- Fix: remove OpenWOB items from the global post_type indexing for Elasticpress.
+-   Fix: remove OpenWOB items from the global post_type indexing for Elasticpress.
 
 ## Version 1.0.3
 
-- Add UUID for identifier
-- RestAPI: findBy UUID instead of custom ID
+-   Add UUID for identifier
+-   RestAPI: findBy UUID instead of custom ID
 
 ## Version 1.0.2
 
-- Cleanup duplicate code in OpenWOBSyncManager
-- Update dependency versions
+-   Cleanup duplicate code in OpenWOBSyncManager
+-   Update dependency versions
 
 ## Version 1.0.1
 
-- Add excerpt to OpenWOB
-- Upgrade PHP-CS-Fixer to version 3.0
+-   Add excerpt to OpenWOB
+-   Upgrade PHP-CS-Fixer to version 3.0
 
 ## Version 1.0.0
 
-- Initial release
+-   Initial release

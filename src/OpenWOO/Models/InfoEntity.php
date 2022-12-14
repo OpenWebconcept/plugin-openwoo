@@ -9,7 +9,7 @@ class InfoEntity extends AbstractEntity
 
     public function getTime(): string
     {
-        $date = (int) $this->data[self::PREFIX . 'Tijdstip_laatste_wijziging']['timestamp'];
+        $date = (int) ($this->data[self::PREFIX . 'Tijdstip_laatste_wijziging']['timestamp'] ?? date('now'));
 
         return (new \DateTime())->setTimestamp($date)->setTimezone(new \DateTimeZone("UTC"))->format("Y-m-d\TH:i:s");
     }
