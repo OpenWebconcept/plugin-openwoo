@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## Version 2.0.0
+
+- Chore: clean-up, php8 and compliant with new version of ElasticPress.
+
 ## Version 1.0.13
 
 -   Fix: improper casting

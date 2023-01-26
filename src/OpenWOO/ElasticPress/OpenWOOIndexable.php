@@ -10,16 +10,10 @@ use Yard\OpenWOO\Repository\OpenWOORepository;
 
 class OpenWOOIndexable extends Post
 {
-    /**
-     * Indexable slug used for identification
-     */
-    public $slug = 'openwoo-item';
-
-    /** @var Config */
-    protected $config;
-
-    /** @var OpenWOORepository */
-    protected $repository;
+    public $slug = 'openwob-item';
+    protected OpenWOORepository $repository;
+    protected Config $config;
+    protected array $labels;
 
     /**
      * Create indexable and initialize dependencies
@@ -42,11 +36,11 @@ class OpenWOOIndexable extends Post
      *
      * @return array
      */
-    public function put_mapping()
+    public function put_mapping($return_type = 'bool')
     {
         $mapping = require $this->config->get('elasticpress.mapping.file');
 
-        return Elasticsearch::factory()->put_mapping($this->get_index_name(), $mapping);
+        return Elasticsearch::factory()->put_mapping($this->get_index_name(), $mapping, $return_type);
     }
 
     /**
@@ -56,7 +50,7 @@ class OpenWOOIndexable extends Post
      *
      * @return string
      */
-    public function get_index_name($siteID = null)
+    public function get_index_name($blog_id = null)
     {
         $siteUrl = pathinfo(get_site_url());
         $siteBasename = $siteUrl['basename'];
@@ -68,7 +62,7 @@ class OpenWOOIndexable extends Post
         $buildIndexName = array_filter(
             [
                 $siteBasename .'-openwoo',
-                $siteID,
+                $blog_id,
                 $this->getEnvironmentVariable(),
             ]
         );
@@ -78,7 +72,7 @@ class OpenWOOIndexable extends Post
 
     protected function getEnvironmentVariable(): string
     {
-        return getenv('APP_ENV');
+        return $_ENV['APP_ENV'] ?? '';
     }
 
     /**
