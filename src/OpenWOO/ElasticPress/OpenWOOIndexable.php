@@ -4,6 +4,7 @@ namespace Yard\OpenWOO\ElasticPress;
 
 use ElasticPress\Elasticsearch;
 use ElasticPress\Indexable\Post\Post;
+use WP_Post;
 use WP_Query;
 use Yard\OpenWOO\Foundation\Config;
 use Yard\OpenWOO\Repository\OpenWOORepository;
@@ -110,7 +111,7 @@ class OpenWOOIndexable extends Post
             'post_modified_gmt'     => $post_modified_gmt,
             'post_type'             => $post->post_type,
             'post_mime_type'        => $post->post_mime_type,
-            'permalink'             => \get_permalink($post_id),
+            'permalink'             => $this->convertPermalink($post) ?:\get_permalink($post_id),
             'meta'                  => $this->prepare_meta_types($this->prepare_meta($post)), // post_meta removed in 2.4
         ];
 
@@ -118,6 +119,27 @@ class OpenWOOIndexable extends Post
         add_action('updated_postmeta', [ $this->sync_manager, 'action_queue_meta_sync' ], 10, 4);
 
         return $post_args;
+    }
+
+    /**
+     * When an OpenWOO item is indexed.
+     * The permalink should point to the portal website.
+     */
+    protected function convertPermalink(WP_Post $post): ?string
+    {
+        $options = get_option('_owc_openpub_base_settings');
+
+        if (! is_array($options) || empty($options['_owc_setting_portal_url'])) {
+            return null;
+        }
+
+        $UUID = get_post_meta($post->ID, 'woo_UUID', true);
+
+        if (empty($UUID)) {
+            return null;
+        }
+
+        return sprintf('%s/openwoo/%s/%s/', $options['_owc_setting_portal_url'], $post->post_name, $UUID);
     }
 
     /**

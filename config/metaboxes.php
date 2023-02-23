@@ -47,7 +47,7 @@ return [
         ],
         'fields'     => [
             [
-                'name' => __('ID', OWO_LANGUAGE_DOMAIN),
+                'name' => __('Zaaknummer (ID)', OWO_LANGUAGE_DOMAIN),
                 'id'   => 'woo_ID',
                 'type' => 'text',
             ],
