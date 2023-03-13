@@ -6,6 +6,7 @@ namespace Yard\OpenWOO;
 
 use WP_Query;
 use Yard\OpenWOO\Foundation\ServiceProvider;
+use Yard\OpenWOO\Migrate\MigrateMetaboxValues;
 use Yard\OpenWOO\RestAPI\RestAPIServiceProvider;
 
 class OpenWOOServiceProvider extends ServiceProvider
@@ -28,6 +29,7 @@ class OpenWOOServiceProvider extends ServiceProvider
         $this->plugin->loader->addAction('pre_get_posts', $this, 'orderByPublishedDate');
         $this->plugin->loader->addFilter('rwmb_meta_boxes', $this, 'registerMetaboxes', 10, 1);
         (new RestAPIServiceProvider($this->plugin))->register();
+        (new MigrateMetaboxValues())->register();
     }
 
     /**
