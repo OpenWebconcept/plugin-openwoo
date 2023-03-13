@@ -213,6 +213,11 @@ return [
                 'type'             => 'text',
             ],
             [
+                'name'             => __('Adres', OWO_LANGUAGE_DOMAIN),
+                'id'               => 'woo_Adres',
+                'type'             => 'text',
+            ],
+            [
                 'name'             => __('Geografische positie', OWO_LANGUAGE_DOMAIN),
                 'id'               => 'woo_Geografische_positie',
                 'type'             => 'group',

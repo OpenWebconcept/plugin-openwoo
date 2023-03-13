@@ -67,6 +67,7 @@ class OpenWOO
             'BAG_ID'                      => $this->meta('BAG_ID', ''),
             'BGT_ID'                      => $this->meta('BGT_ID', ''),
             'Postcodegebied'              => $this->meta('Postcodegebied', ''),
+            'Adres'                       => $this->meta('Adres', ''),
         ];
 
         if ($coords = COORDSEntity::make($this->meta('COORDS', []))->get()) {
