@@ -4,8 +4,9 @@ namespace Yard\OpenWOO\Migrate;
 
 function dd($data): void
 {
-    var_dump($data);
-    die;
+    echo "<pre>";
+    print_r($data);
+    exit;
 }
 
 class MigrateMetaboxValues
@@ -17,19 +18,18 @@ class MigrateMetaboxValues
         $this->migrate();
     }
     
-    public function register()
+    public function register(): void
     {
         if (! class_exists('WP_CLI')) {
             return;
         }
-
 
         \WP_CLI::add_command(self::COMMAND, $this, [
             'shortdesc' => 'Migrate metabox values from old to new format',
         ]);
     }
 
-    public function migrate()
+    public function migrate(): void
     {
         $posts = $this->getPosts();
         $this->updatePosts($posts);
@@ -49,8 +49,7 @@ class MigrateMetaboxValues
     private function updatePosts(array $posts): void
     {
         foreach ($posts as $post) {
-            $oldMeta = $this->getOldMeta($post);
-            $newMeta = $this->getNewMeta($oldMeta);
+            $newMeta = $this->getNewMeta($this->getOldMeta($post));
             $this->updatePost($post, $newMeta);
         }
     }
@@ -87,7 +86,7 @@ class MigrateMetaboxValues
                 continue;
             }
 
-            $newKey           = str_replace('URL', 'Bijlage', $key);
+            $newKey = str_replace('URL', 'Bijlage', $key);
             $newMeta[$newKey] = $attachmentID;
         }
 
@@ -104,26 +103,26 @@ class MigrateMetaboxValues
     private function gfFormsMediaURLToAttachmentID(string $url): int
     {
         // get the "gf-download" parameter from the url
-        $urlParts = \parse_url($url);
-        \parse_str($urlParts['query'] ?? '', $query);
+        $urlParts = parse_url($url);
+        parse_str($urlParts['query'] ?? '', $query);
         $gfDownload = $query['gf-download'] ?? '';
 
         if (empty($gfDownload)) {
             return 0;
         }
 
-        // remove the "YYYY/MM/" part from the "gf-download" parameter
-        $mediaUrl   = \get_site_url() . '/wp-content/uploads/' . $gfDownload;
+        // Remove the "YYYY/MM/" part from the "gf-download" parameter.
+        $mediaUrl = \get_site_url() . '/wp-content/uploads/' . $gfDownload;
 
-        // get the attachment id from the "gf-download" parameter
+        // Get the attachment id from the "gf-download" parameter.
         $attachmentID = \attachment_url_to_postid($mediaUrl);
 
         if (0 !== $attachmentID) {
             return $attachmentID;
         }
 
-        // try again but add -scaled to the end before the extension
-        $mediaUrl     = preg_replace('/(\.[a-z0-9]+)$/', '-scaled$1', $mediaUrl);
+        // Try again but add -scaled to the end before the extension.
+        $mediaUrl = preg_replace('/(\.[a-z0-9]+)$/', '-scaled$1', $mediaUrl);
         $attachmentID = \attachment_url_to_postid($mediaUrl);
 
         return $attachmentID;
