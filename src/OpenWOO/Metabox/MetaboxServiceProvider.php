@@ -25,6 +25,6 @@ class MetaboxServiceProvider extends MetaboxBaseServiceProvider
             $metaboxes[] = $this->processMetabox($metabox);
         }
 
-        return array_merge($rwmbMetaboxes, apply_filters("yard/openwoo/before-register-metaboxes", $metaboxes));
+        return array_merge($rwmbMetaboxes, apply_filters('yard/openwoo/before-register-metaboxes', $metaboxes));
     }
 }

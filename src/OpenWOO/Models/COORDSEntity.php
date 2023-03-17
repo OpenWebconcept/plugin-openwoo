@@ -4,8 +4,7 @@ namespace Yard\OpenWOO\Models;
 
 class COORDSEntity extends AbstractEntity
 {
-    /** @var array */
-    protected $required = ['X', 'Y'];
+    protected array $required = ['X', 'Y'];
 
     protected function data(): array
     {

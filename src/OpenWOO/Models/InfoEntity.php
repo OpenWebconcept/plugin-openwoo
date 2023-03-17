@@ -4,8 +4,7 @@ namespace Yard\OpenWOO\Models;
 
 class InfoEntity extends AbstractEntity
 {
-    /** @var array */
-    protected $required = ['Status', 'Tijdstip_laatste_wijziging'];
+    protected array $required = ['Status', 'Tijdstip_laatste_wijziging'];
 
     public function getTime(): string
     {

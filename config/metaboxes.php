@@ -12,16 +12,13 @@ return [
         'autosave' => true,
         'validation' => [
             'rules' => [
-                'woo_ID' => [
-                    'required'  => true,
-                ],
-                'woo_Wooverzoek_informatie[woo_Status]' => [
+                'woo_Kenmerk' => [
                     'required'  => true,
                 ],
                 'woo_Wooverzoek_informatie[woo_Tijdstip_laatste_wijziging][formatted]' => [
                     'required'  => true,
                 ],
-                'woo_Titel' => [
+                'woo_Onderwerp' => [
                     'required'  => true,
                 ],
                 'woo_Ontvangstdatum' => [
@@ -33,15 +30,9 @@ return [
                 'woo_Besluit' => [
                     'required'  => true,
                 ],
-                'woo_URL_informatieverzoek' => [
-                    'required'  => true,
-                ],
-                'woo_URL_besluit' => [
-                    'required'  => true,
-                ],
             ],
         ],
-        'fields'     => [
+        'fields' => [
             [
                 'name' => __('Kenmerk', OWO_LANGUAGE_DOMAIN),
                 'id' => 'woo_Kenmerk',
@@ -59,21 +50,32 @@ return [
                 'clone_as_multiple' => true,
                 'fields' => [
                     [
-                        'name' => __('Tijdstip laatste wijziging', OWO_LANGUAGE_DOMAIN),
-                        'id' => 'woo_Tijdstip_laatste_wijziging',
-                        'type' => 'datetime',
-                        'timestamp' => true,
-                        'js_options' => [
-                            'dateFormat' => 'dd-mm-yy',
-                            'timeFormat' => 'HH:mm',
-                            'showTimepicker' => true,
-                            'controlType' => 'select',
-                            'showButtonPanel' => false,
-                            'oneLine' => true,
-                        ],
-                        'inline' => false,
+                        'name'             => __('Status', OWO_LANGUAGE_DOMAIN),
+                        'id'               => 'woo_Status',
+                        'type'             => 'select',
+                        'options'          => [
+                            ''           => '',
+                            'Nieuw'      => 'Nieuw',
+                            'Gewijzigd'  => 'Gewijzigd',
+                            'Verwijderd' => 'Verwijderd'
+                        ]
                     ],
-                ],
+                    [
+                        'name'             => __('Tijdstip laatste wijziging', OWO_LANGUAGE_DOMAIN),
+                        'id'               => 'woo_Tijdstip_laatste_wijziging',
+                        'type'             => 'datetime',
+                        'timestamp'        => true,
+                        'js_options'       => [
+                            'dateFormat'       => 'dd-mm-yy',
+                            'timeFormat'       => 'HH:mm',
+                            'showTimepicker'   => true,
+                            'controlType'      => 'select',
+                            'showButtonPanel'  => false,
+                            'oneLine'          => true,
+                        ],
+                        'inline'     => false,
+                    ]
+                ]
             ],
             [
                 'name' => __('Volgnummer', OWO_LANGUAGE_DOMAIN),
@@ -177,7 +179,7 @@ return [
                 'name' => __('Themas', OWO_LANGUAGE_DOMAIN),
                 'id' => 'woo_Themas',
                 'type' => 'group',
-                'clone' => 'true',
+                'clone' => true,
                 'fields' => [
                     [
                         'name' => __('Hoofdthema', OWO_LANGUAGE_DOMAIN),
@@ -311,6 +313,12 @@ return [
                         'id' => 'woo_URL_Bijlage',
                         'type' => 'text',
                     ],
+                    [
+                        'name' => __('Bijlage', OWO_LANGUAGE_DOMAIN),
+                        'id' => 'woo_Bijlage',
+                        'type' => 'file',
+                        'max_file_uploads' => 1,
+                    ]
                 ],
             ],
         ],

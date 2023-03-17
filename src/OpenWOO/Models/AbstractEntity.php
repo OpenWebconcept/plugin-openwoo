@@ -6,11 +6,8 @@ abstract class AbstractEntity
 {
     const PREFIX = 'woo_';
 
-    /** @var array */
-    protected $data = [];
-
-    /** @var array */
-    protected $required = [];
+    protected array $data = [];
+    protected array $required = [];
 
     public function __construct(array $data = [])
     {

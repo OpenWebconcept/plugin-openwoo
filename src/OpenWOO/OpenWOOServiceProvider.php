@@ -84,7 +84,6 @@ class OpenWOOServiceProvider extends ServiceProvider
     public function registerMetaboxes($rwmbMetaboxes)
     {
         $metaboxes = $this->plugin->config->get('metaboxes') ?? [];
-
         return array_merge($rwmbMetaboxes, \apply_filters('yard/openwoo/before-register-metaboxes', $metaboxes));
     }
 
@@ -121,7 +120,7 @@ class OpenWOOServiceProvider extends ServiceProvider
         \register_post_type(self::POSTTYPE, [
             'label'              => 'OpenWOO',
             'public'             => true,
-            'publicly_queryable' => false,
+            'publicly_queryable' => true,
             'show_ui'            => true,
             'show_in_menu'       => true,
             'show_in_rest'       => true,

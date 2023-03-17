@@ -15,7 +15,7 @@ return [
          * Providers specific to the admin.
          */
         'admin' => [
-
+            class_exists('\OWC\OpenPub\Base\Settings\SettingsPageOptions') ? Yard\OpenWOO\Admin\AdminServiceProvider::class : Yard\OpenWOO\Foundation\NullServiceProvider::class
         ],
         'cli'   => [
         ],

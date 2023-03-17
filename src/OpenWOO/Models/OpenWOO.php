@@ -2,8 +2,6 @@
 
 namespace Yard\OpenWOO\Models;
 
-use WP_Post;
-
 /**
  * @OA\Schema(
  *   title="OpenWOO model",
@@ -12,10 +10,7 @@ use WP_Post;
  */
 class OpenWOO
 {
-    /**
-     * @var array
-     */
-    protected $data = [];
+    protected array $data = [];
 
     public function __construct(array $data = [])
     {
@@ -46,12 +41,14 @@ class OpenWOO
     {
         $data = [
             'Wooverzoek_informatie'       => InfoEntity::make($this->meta('Wooverzoek_informatie', []))->get(),
-            'UUID'                        => $this->meta('UUID'),
-            'ID'                          => $this->meta('ID'),
+            'UUID'                        => $this->meta('UUID', ''),
+            'ID'                          => $this->meta('Kenmerk', ''),
+            'Object_ID'                   => $this->data['ID'],
+            'Portal_url'                  => $this->composePortalURL(),
             'Behandelend_bestuursorgaan'  => $this->meta('Behandelend_bestuursorgaan'),
             'Ontvanger_informatieverzoek' => $this->meta('Ontvanger_informatieverzoek', ''),
             'Volgnummer'                  => $this->meta('Volgnummer', ''),
-            'Titel'                       => $this->meta('Titel', ''),
+            'Titel'                       => $this->meta('Onderwerp', ''),
             'Beschrijving'                => $this->field('post_content', ''),
             'Samenvatting'                => $this->field('post_excerpt', ''),
             'Verzoeker'                   => $this->meta('Verzoeker', ''),
@@ -60,9 +57,9 @@ class OpenWOO
             'Behandelstatus'              => $this->meta('Behandelstatus', ''),
             'Besluit'                     => $this->meta('Besluit'),
             'Termijnoverschrijding'       => $this->meta('Termijnoverschrijding', ''),
-            'URL_informatieverzoek'       => wp_get_attachment_url($this->meta('Bijlage_informatieverzoek', '')),
-            'URL_inventarisatielijst'     => wp_get_attachment_url($this->meta('Bijlage_inventarisatielijst', '')),
-            'URL_besluit'                 => wp_get_attachment_url($this->meta('Bijlage_besluit', '')),
+            'URL_informatieverzoek'       => $this->getAttachmentURL('Bijlage_informatieverzoek'),
+            'URL_inventarisatielijst'     => $this->getAttachmentURL('Bijlage_inventarisatielijst'),
+            'URL_besluit'                 => $this->getAttachmentURL('Bijlage_besluit'),
             'Geografisch_gebied'          => $this->meta('Geografisch_gebied', ''),
             'BAG_ID'                      => $this->meta('BAG_ID', ''),
             'BGT_ID'                      => $this->meta('BGT_ID', ''),
@@ -91,6 +88,53 @@ class OpenWOO
         }
 
         return array_filter($data);
+    }
+
+    /**
+     * Wordpress uploads are connected in the database by an object its ID.
+     * Use this ID to get the URL of the upload.
+     * External URL's are an URL already so there is no further action required.
+     */
+    protected function getAttachmentURL(string $internalMetaKeyURL): string
+    {
+        $url = $this->meta($internalMetaKeyURL, '');
+
+        if (empty($url)) {
+            $externalMetaKeyURL = str_replace('Bijlage', 'URL', $internalMetaKeyURL);
+            $url = $this->meta($externalMetaKeyURL, '');
+        }
+
+        if (empty($url)) {
+            return '';
+        }
+
+        if (is_numeric($url)) {
+            return \wp_get_attachment_url($url);
+        }
+
+        return $url;
+    }
+
+    protected function composePortalURL(): string
+    {
+        if (! class_exists('\OWC\OpenPub\Base\Settings\SettingsPageOptions')) {
+            return '';
+        }
+
+        $options = \OWC\OpenPub\Base\Settings\SettingsPageOptions::make();
+
+        $urlParts = array_filter([
+            \untrailingslashit($options->getPortalURL()),
+            'openwoo',
+            \sanitize_title($this->meta('Onderwerp', '')),
+            $this->meta('UUID', '')
+        ]);
+
+        if (count($urlParts) < 4) {
+            return '';
+        }
+
+        return vsprintf('%s/%s/%s/%s', $urlParts);
     }
 
     public function field(string $field, $default = null)

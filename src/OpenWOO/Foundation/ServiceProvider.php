@@ -1,29 +1,16 @@
 <?php declare(strict_types=1);
-/**
- * Provider which handles the registration of the plugin.
- */
 
 namespace Yard\OpenWOO\Foundation;
 
-/**
- * Provider which handles the registration of the plugin.
- */
 abstract class ServiceProvider
 {
-
     /**
      * Instance of the plugin.
-     *
-     * @var \Yard\OpenWOO\Foundation\Plugin
      */
-    protected $plugin;
+    protected Plugin $plugin;
 
     /**
      * Construction of the service provider.
-     *
-     * @param Plugin $plugin
-     *
-     * @return void
      */
     public function __construct(Plugin $plugin)
     {

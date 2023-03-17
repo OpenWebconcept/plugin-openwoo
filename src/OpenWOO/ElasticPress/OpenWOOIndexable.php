@@ -13,7 +13,7 @@ class OpenWOOIndexable extends Post
     public $slug = 'openwob-item';
     protected OpenWOORepository $repository;
     protected Config $config;
-    protected array $labels;
+    public $labels = [];
 
     /**
      * Create indexable and initialize dependencies

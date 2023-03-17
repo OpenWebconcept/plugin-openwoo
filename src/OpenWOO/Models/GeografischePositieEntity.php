@@ -4,8 +4,7 @@ namespace Yard\OpenWOO\Models;
 
 class GeografischePositieEntity extends AbstractEntity
 {
-    /** @var array */
-    protected $required = ['Longitude', 'Lattitude'];
+    protected array $required = ['Longitude', 'Lattitude'];
 
     protected function data(): array
     {

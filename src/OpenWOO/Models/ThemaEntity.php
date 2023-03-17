@@ -4,8 +4,7 @@ namespace Yard\OpenWOO\Models;
 
 class ThemaEntity extends AbstractEntity
 {
-    /** @var array */
-    protected $required = ['Hoofdthema'];
+    protected array $required = ['Hoofdthema'];
 
     protected function data(): array
     {
