@@ -16,7 +16,7 @@ class Plugin
      *
      * @var string
      */
-    const NAME = OWO_SLUG;
+    const NAME = \OWO_SLUG;
 
     /**
      * Version of the plugin.
@@ -24,35 +24,26 @@ class Plugin
      *
      * @var string VERSION
      */
-    const VERSION = OWO_VERSION;
+    const VERSION = \OWO_VERSION;
 
     /**
      * Path to the root of the plugin.
-     *
-     * @var string
      */
-    protected $rootPath;
+    protected string $rootPath;
 
     /**
      * Instance of the configuration repository.
-     *
-     * @var \Yard\OpenWOO\Foundation\Config
+
      */
-    public $config;
+    public Config $config;
 
     /**
      * Instance of the Hook loader.
-     *
-     * @var Loader
      */
-    public $loader;
+    public Loader $loader;
 
     /**
      * Constructor of the BasePlugin
-     *
-     * @param string $rootPath
-     *
-     * @return void
      */
     public function __construct(string $rootPath)
     {
@@ -69,8 +60,6 @@ class Plugin
      * Boot the plugin.
      *
      * @hook plugins_loaded
-     *
-     * @return bool
      */
     public function boot(): bool
     {
@@ -115,10 +104,8 @@ class Plugin
 
     /**
      * Allows for hooking into the plugin name.
-     *
-     * @return void
      */
-    public function filterPlugin()
+    public function filterPlugin(): void
     {
         \do_action('yard/' . self::NAME . '/plugin', $this);
     }

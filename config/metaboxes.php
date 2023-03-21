@@ -44,40 +44,6 @@ return [
                 'type' => 'text',
             ],
             [
-                'name' => __('Wooverzoek informatie', OWO_LANGUAGE_DOMAIN),
-                'id' => 'woo_Wooverzoek_informatie',
-                'type' => 'group',
-                'clone_as_multiple' => true,
-                'fields' => [
-                    [
-                        'name'             => __('Status', OWO_LANGUAGE_DOMAIN),
-                        'id'               => 'woo_Status',
-                        'type'             => 'select',
-                        'options'          => [
-                            ''           => '',
-                            'Nieuw'      => 'Nieuw',
-                            'Gewijzigd'  => 'Gewijzigd',
-                            'Verwijderd' => 'Verwijderd'
-                        ]
-                    ],
-                    [
-                        'name'             => __('Tijdstip laatste wijziging', OWO_LANGUAGE_DOMAIN),
-                        'id'               => 'woo_Tijdstip_laatste_wijziging',
-                        'type'             => 'datetime',
-                        'timestamp'        => true,
-                        'js_options'       => [
-                            'dateFormat'       => 'dd-mm-yy',
-                            'timeFormat'       => 'HH:mm',
-                            'showTimepicker'   => true,
-                            'controlType'      => 'select',
-                            'showButtonPanel'  => false,
-                            'oneLine'          => true,
-                        ],
-                        'inline'     => false,
-                    ]
-                ]
-            ],
-            [
                 'name' => __('Volgnummer', OWO_LANGUAGE_DOMAIN),
                 'id' => 'woo_Volgnummer',
                 'type' => 'text',
@@ -109,6 +75,7 @@ return [
                     'showButtonPanel' => false,
                     'oneLine' => true,
                 ],
+                'save_format' => 'Y-m-d',
                 'inline' => false,
             ],
             [
@@ -123,6 +90,7 @@ return [
                     'showButtonPanel' => false,
                     'oneLine' => true,
                 ],
+                'save_format' => 'Y-m-d',
                 'inline' => false,
             ],
             [

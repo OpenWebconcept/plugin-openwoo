@@ -1,8 +1,16 @@
 # CHANGELOG
 
+## Version 3.0.0
+
+-   Refactor: api output compliant with new metabox fields.
+-   Feat: migration of existing items.
+-   Feat: add address metabox group.
+-   Chore: revisit metabox fields.
+-   Feat: replace GF uploads with WP attachments admin
+
 ## Version 2.0.0
 
-- Chore: clean-up, php8 and compliant with new version of ElasticPress.
+-   Chore: clean-up, php8 and compliant with new version of ElasticPress.
 
 ## Version 1.0.13
 

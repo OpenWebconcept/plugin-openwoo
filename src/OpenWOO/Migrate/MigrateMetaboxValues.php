@@ -154,7 +154,7 @@ class MigrateMetaboxValues
 
     /**
      * Use the old Gravity Forms upload URL and save upload to the Wordpress uploads folder.
-     * This enables the editors to update or delete uploads with using the Wordpress uploader.
+     * This enables the editors to update or delete uploads by using the Wordpress uploader.
      */
     private function getSingleAttachmentsURLs(array $oldMeta): array
     {

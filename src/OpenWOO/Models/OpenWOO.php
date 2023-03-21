@@ -40,7 +40,6 @@ class OpenWOO
     public function transform(): array
     {
         $data = [
-            'Wooverzoek_informatie'       => InfoEntity::make($this->meta('Wooverzoek_informatie', []))->get(),
             'UUID'                        => $this->meta('UUID', ''),
             'ID'                          => $this->meta('Kenmerk', ''),
             'Object_ID'                   => $this->data['ID'],
