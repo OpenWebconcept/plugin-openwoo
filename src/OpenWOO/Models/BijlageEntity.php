@@ -8,9 +8,13 @@ class BijlageEntity extends AbstractEntity
 
     public function getTime(): string
     {
-        $date = (int) ($this->data[self::PREFIX . 'Tijdstip_laatste_wijziging_bijlage']['timestamp'] ?? date('now'));
+        $date = $this->data[self::PREFIX . 'Tijdstip_laatste_wijziging_bijlage']['timestamp'] ?? '';
 
-        return (new \DateTime())->setTimestamp($date)->setTimezone(new \DateTimeZone('UTC'))->format('Y-m-d\TH:i:s');
+        if (empty($date)) {
+            return '';
+        }
+
+        return (new \DateTime())->setTimestamp((int) $date)->setTimezone(new \DateTimeZone('UTC'))->format('Y-m-d\TH:i:s');
     }
 
     protected function data(): array
@@ -18,7 +22,7 @@ class BijlageEntity extends AbstractEntity
         return [
             'Type_Bijlage'                       => $this->data[self::PREFIX . 'Type_Bijlage'] ?? '',
             'Status_Bijlage'                     => $this->data[self::PREFIX . 'Status_Bijlage'] ?? '',
-            'Tijdstip_laatste_wijziging_bijlage' => $this->getTime() ?? '',
+            'Tijdstip_laatste_wijziging_bijlage' => $this->getTime(),
             'Titel_Bijlage'                      => $this->data[self::PREFIX . 'Titel_Bijlage'] ?? '',
             'URL_Bijlage'                        => $this->getAttachmentURL() ? $this->getAttachmentURL() : $this->data[self::PREFIX . 'URL_Bijlage'] ?? ''
         ];
@@ -31,6 +35,10 @@ class BijlageEntity extends AbstractEntity
     protected function getAttachmentURL(): string
     {
         $objectID = $this->data[self::PREFIX . 'Bijlage'] ?? '';
+
+        if (is_array($objectID)) {
+            $objectID = $objectID[0];
+        }
 
         if (empty($objectID)) {
             return '';
