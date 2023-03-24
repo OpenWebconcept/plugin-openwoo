@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## Version 3.0.1
+
+-   Fix: bijlageEntity.
+
 ## Version 3.0.0
 
 -   Refactor: api output compliant with new metabox fields.
