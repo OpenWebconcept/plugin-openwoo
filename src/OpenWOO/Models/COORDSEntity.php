@@ -13,8 +13,8 @@ class COORDSEntity extends AbstractEntity
         }
 
         return [
-            'X' => (int) $this->data[self::PREFIX . 'X'] ?? '',
-            'Y' => (int) $this->data[self::PREFIX . 'Y'] ?? '',
+            'X' => ! empty($this->data[self::PREFIX . 'X']) ? (int) $this->data[self::PREFIX . 'X'] : '',
+            'Y' => ! empty($this->data[self::PREFIX . 'Y']) ? (int) $this->data[self::PREFIX . 'Y'] : '',
         ];
     }
 }

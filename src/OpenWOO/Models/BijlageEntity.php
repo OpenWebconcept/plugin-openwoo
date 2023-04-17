@@ -20,11 +20,11 @@ class BijlageEntity extends AbstractEntity
     protected function data(): array
     {
         return [
-            'Type_Bijlage'                       => $this->data[self::PREFIX . 'Type_Bijlage'] ?? '',
-            'Status_Bijlage'                     => $this->data[self::PREFIX . 'Status_Bijlage'] ?? '',
+            'Type_Bijlage' => $this->data[self::PREFIX . 'Type_Bijlage'] ?? '',
+            'Status_Bijlage' => $this->data[self::PREFIX . 'Status_Bijlage'] ?? '',
             'Tijdstip_laatste_wijziging_bijlage' => $this->getTime(),
-            'Titel_Bijlage'                      => $this->data[self::PREFIX . 'Titel_Bijlage'] ?? '',
-            'URL_Bijlage'                        => $this->getAttachmentURL() ? $this->getAttachmentURL() : $this->data[self::PREFIX . 'URL_Bijlage'] ?? ''
+            'Titel_Bijlage' => $this->data[self::PREFIX . 'Titel_Bijlage'] ?? '',
+            'URL_Bijlage' => $this->getAttachmentURL() ? $this->getAttachmentURL() : $this->data[self::PREFIX . 'URL_Bijlage'] ?? ''
         ];
     }
 
@@ -42,6 +42,10 @@ class BijlageEntity extends AbstractEntity
 
         if (empty($objectID)) {
             return '';
+        }
+
+        if (! is_numeric($objectID)) {
+            return $objectID;
         }
 
         return \wp_get_attachment_url($objectID) ?: '';

@@ -1,5 +1,22 @@
 # Upgrading Guide
 
+When your installation is fresh it is not required to follow this guide.
+
+## From v3.\* to v4.\*
+
+Always upgrade from v2.\* to v3.\* before upgrading to v4.\*
+
+Only execute the following command when:
+
+-   The previous version of this plug-in was v3.\*
+-   The commands, described in the upgrading part from v2.\* to v3.\*, are executed.
+
+### Migrate
+
+Since version 4.0.0 this plug-in uses CMB2 instead of the Metabox.io plug-in.
+Projects that have used earlier versions need to execute one command to format all the data of the OpenWOO items so that they can work with CMB2.
+Open the terminal and execute `wp openwoo migrate-to-cmb2` and all the items are ready to work with the CMB2 plugin.
+
 ## From v2.\* to v3.\*
 
 ### Migrate

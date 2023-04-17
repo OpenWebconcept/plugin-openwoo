@@ -29,6 +29,8 @@ class MigrateMetaboxValues
 
     public function migrate(): void
     {
+        $this->depcrecatedCommandNotice();
+        
         $posts = $this->getPosts();
 
         if (empty($posts)) {
@@ -38,6 +40,16 @@ class MigrateMetaboxValues
         $this->updatePosts($posts);
 
         WP_CLI::log('Migration completed, don\'t forget to clear the old uploads inside the Gravity Forms uploads folder.');
+    }
+
+    /**
+     * Stop the execution of this command when current version is not ^v3.*.
+     * Command converts Metabox.io values from old to new format.
+     * In the current version Metabox.io is completely depcrecated.
+     */
+    public function depcrecatedCommandNotice(): void
+    {
+        WP_CLI::error('This command must only be executed in version 3, please read the UPGRADING.md inside the root of the plugin directory.');
     }
 
     private function getPosts(): array

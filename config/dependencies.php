@@ -17,15 +17,9 @@ return [
          */
         [
             'type'    => 'plugin',
-            'label'   => 'RWMB Metabox',
-            'version' => '5.0',
-            'file'    => 'meta-box/meta-box.php',
-        ],
-        [
-            'type'    => 'plugin',
-            'label'   => 'Meta Box Group',
-            'version' => '1.2.14',
-            'file'    => 'metabox-group/meta-box-group.php',
+            'label'   => 'CMB2',
+            'version' => '2.10.1',
+            'file'    => 'cmb2/init.php',
         ],
         [
             'type'  => 'class',

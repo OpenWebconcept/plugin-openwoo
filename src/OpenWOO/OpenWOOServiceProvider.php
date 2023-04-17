@@ -7,6 +7,7 @@ namespace Yard\OpenWOO;
 use WP_Query;
 use Yard\OpenWOO\Foundation\ServiceProvider;
 use Yard\OpenWOO\Migrate\MigrateMetaboxValues;
+use Yard\OpenWOO\Migrate\MigrateToCMB2;
 use Yard\OpenWOO\RestAPI\RestAPIServiceProvider;
 
 class OpenWOOServiceProvider extends ServiceProvider
@@ -27,9 +28,9 @@ class OpenWOOServiceProvider extends ServiceProvider
         $this->plugin->loader->addAction('init', $this, 'registerPostTypes');
         $this->plugin->loader->addAction('init', $this, 'registerTaxonomies');
         $this->plugin->loader->addAction('pre_get_posts', $this, 'orderByPublishedDate');
-        $this->plugin->loader->addFilter('rwmb_meta_boxes', $this, 'registerMetaboxes', 10, 1);
         (new RestAPIServiceProvider($this->plugin))->register();
         (new MigrateMetaboxValues())->register();
+        (new MigrateToCMB2())->register();
     }
 
     /**
@@ -75,26 +76,9 @@ class OpenWOOServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register metaboxes.
-     *
-     * @param $rwmbMetaboxes
-     *
-     * @return array
-     */
-    public function registerMetaboxes($rwmbMetaboxes)
-    {
-        $metaboxes = $this->plugin->config->get('metaboxes') ?? [];
-        return array_merge($rwmbMetaboxes, \apply_filters('yard/openwoo/before-register-metaboxes', $metaboxes));
-    }
-
-    /**
      * Add default order.
-     *
-     * @param WP_Query $query
-     *
-     * @return void
      */
-    public function orderByPublishedDate(WP_Query $query)
+    public function orderByPublishedDate(WP_Query $query): void
     {
         if (! is_admin()) {
             return;

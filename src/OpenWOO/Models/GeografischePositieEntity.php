@@ -13,8 +13,8 @@ class GeografischePositieEntity extends AbstractEntity
         }
 
         return [
-            'Longitude' => (float) $this->data[self::PREFIX . 'Longitude'] ?? '',
-            'Lattitude' => (float) $this->data[self::PREFIX . 'Lattitude'] ?? '',
+            'Longitude' => ! empty($this->data[self::PREFIX . 'Longitude']) ? (float) $this->data[self::PREFIX . 'Longitude'] : '',
+            'Lattitude' => ! empty($this->data[self::PREFIX . 'Lattitude']) ? (float) $this->data[self::PREFIX . 'Lattitude'] : '',
         ];
     }
 }

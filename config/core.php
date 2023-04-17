@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 return [
 
@@ -11,6 +13,7 @@ return [
          */
         Yard\OpenWOO\OpenWOOServiceProvider::class,
         Yard\OpenWOO\ElasticPress\ElasticPressServiceProvider::class,
+        Yard\OpenWOO\Metabox\MetaboxServiceProvider::class,
         /**
          * Providers specific to the admin.
          */

@@ -9,9 +9,9 @@ class ThemaEntity extends AbstractEntity
     protected function data(): array
     {
         return [
-            'Hoofdthema'        => $this->data[self::PREFIX . 'Hoofdthema'] ?? '',
-            'Subthema'          => $this->data[self::PREFIX . 'Subthema'] ?? '',
-            'Aanvullend_thema'  => $this->data[self::PREFIX . 'Aanvullend_thema'] ?? '',
+            'Hoofdthema' => $this->data[self::PREFIX . 'Hoofdthema'] ?? '',
+            'Subthema' => $this->data[self::PREFIX . 'Subthema'] ?? '',
+            'Aanvullend_thema' => $this->data[self::PREFIX . 'Aanvullend_thema'] ?? '',
         ];
     }
 }
