@@ -21,6 +21,11 @@ return [
                     ],
                 ],
                 [
+                    'name' => __('Samenvatting', OWO_LANGUAGE_DOMAIN),
+                    'id' => 'woo_Samenvatting',
+                    'type' => 'textarea',
+                ],
+                [
                     'name' => __('Onderwerp *', OWO_LANGUAGE_DOMAIN),
                     'id' => 'woo_Onderwerp',
                     'type' => 'text',

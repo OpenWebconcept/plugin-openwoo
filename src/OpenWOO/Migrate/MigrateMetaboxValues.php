@@ -3,6 +3,7 @@
 namespace Yard\OpenWOO\Migrate;
 
 use WP_CLI;
+use WP_Post;
 use Yard\OpenWOO\Traits\GravityFormsUploadToMediaLibrary;
 
 class MigrateMetaboxValues
@@ -52,7 +53,7 @@ class MigrateMetaboxValues
         WP_CLI::error('This command must only be executed in version 3, please read the UPGRADING.md inside the root of the plugin directory.');
     }
 
-    private function getPosts(): array
+    protected function getPosts(): array
     {
         $query = new \WP_Query([
             'post_type'      => 'openwoo-item',
@@ -63,10 +64,11 @@ class MigrateMetaboxValues
         return $query->posts;
     }
     
-    private function updatePosts(array $posts): void
+    protected function updatePosts(array $posts): void
     {
         foreach ($posts as $post) {
             $this->replaceOldMetaKeys($post);
+            $this->excerptToMeta($post);
 
             if (! \is_plugin_active('gravityforms/gravityforms.php')) {
                 continue;
@@ -77,7 +79,7 @@ class MigrateMetaboxValues
         }
     }
 
-    private function replaceMultipleAttachmentsURLs(\WP_Post $post): void
+    protected function replaceMultipleAttachmentsURLs(WP_Post $post): void
     {
         $keys = [
             'woo_Bijlagen'
@@ -92,7 +94,7 @@ class MigrateMetaboxValues
         \update_post_meta($post->ID, 'woo_Bijlagen', $this->handleMultipleAttachments($oldMeta['woo_Bijlagen']));
     }
 
-    private function handleMultipleAttachments(array $attachments): array
+    protected function handleMultipleAttachments(array $attachments): array
     {
         $holder = [];
 
@@ -119,11 +121,31 @@ class MigrateMetaboxValues
         return $holder;
     }
 
+    protected function excerptToMeta(WP_Post $post): void
+    {
+        $excerpt = $post->post_excerpt ?? '';
+        
+        if (empty($excerpt)) {
+            return;
+        }
+
+        $existingExcerptMeta = \get_post_meta($post->ID, 'woo_Samenvatting', true);
+
+        if(! empty($existingExcerptMeta)) {
+            $post->post_excerpt = ''; // Meta field for 'samenvatting' already in place, clear excerpt.
+            \wp_update_post($post);
+
+            return;
+        }
+
+        \update_post_meta($post->ID, 'woo_Samenvatting', $excerpt);
+    }
+
     /**
      * Only update the meta keys.
      * Some form fields have been renamed.
      */
-    private function replaceOldMetaKeys(\WP_Post $post): void
+    protected function replaceOldMetaKeys(WP_Post $post): void
     {
         $keys = [
             'woo_ID' => 'woo_Kenmerk',
@@ -148,7 +170,7 @@ class MigrateMetaboxValues
      * Replaces meta keys and values as well.
      * Must be used for meta fields that have an URL as plain string value only.
      */
-    private function replaceSingleAttachmentsURLs(\WP_Post $post)
+    protected function replaceSingleAttachmentsURLs(WP_Post $post)
     {
         $keys = [
             'woo_URL_informatieverzoek',
@@ -168,7 +190,7 @@ class MigrateMetaboxValues
      * Use the old Gravity Forms upload URL and save upload to the Wordpress uploads folder.
      * This enables the editors to update or delete uploads by using the Wordpress uploader.
      */
-    private function getSingleAttachmentsURLs(array $oldMeta): array
+    protected function getSingleAttachmentsURLs(array $oldMeta): array
     {
         $newMeta = [];
 
@@ -190,7 +212,7 @@ class MigrateMetaboxValues
         return $newMeta;
     }
 
-    private function getOldMeta(\WP_Post $post, array $keys): array
+    protected function getOldMeta(WP_Post $post, array $keys): array
     {
         $meta = [];
 
@@ -201,7 +223,7 @@ class MigrateMetaboxValues
         return array_filter($meta);
     }
 
-    private function updatePost(\WP_Post $post, array $newMeta): void
+    protected function updatePost(WP_Post $post, array $newMeta): void
     {
         foreach ($newMeta as $key => $value) {
             \update_post_meta($post->ID, $key, $value);
