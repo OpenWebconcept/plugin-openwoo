@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## Version 4.0.1
+
+-   Fix: use CURL instead of file_get_contents
+
 ## Version 4.0.0
 
 -   Feat: implement CMB2 and replace Metabox.io
