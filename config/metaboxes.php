@@ -274,7 +274,7 @@ return [
                         [
                             'name' => __('URL Bijlage', OWO_LANGUAGE_DOMAIN),
                             'id' => 'woo_URL_Bijlage',
-                            'type' => 'text',
+                            'type' => 'text_url',
                         ],
                         [
                             'name' => __('Bijlage', OWO_LANGUAGE_DOMAIN),
