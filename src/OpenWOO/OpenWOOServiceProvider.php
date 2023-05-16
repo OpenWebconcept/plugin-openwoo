@@ -42,7 +42,7 @@ class OpenWOOServiceProvider extends ServiceProvider
             return $post;
         }
 
-        $post['post_title'] = isset($_POST['woo_Titel']) ? \esc_attr($_POST['woo_Titel']) : $post['post_title'];
+        $post['post_title'] = isset($_POST['woo_Onderwerp']) ? \esc_attr($_POST['woo_Onderwerp']) : $post['post_title'];
 
         return $post;
     }

@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## Version 4.0.2
+
+-   Refactor: display 'Ontvangstdatum' and 'Besluitdatum' date fields in English format within API
+-   Refactor: use 'woo_Onderwerp' for filling the title inside the 'wp_insert_post_data' hook
+
 ## Version 4.0.1
 
 -   Fix: use CURL instead of file_get_contents
@@ -10,14 +15,14 @@
 
 ## Version 3.0.1
 
--   Fix: bijlageEntity.
+-   Fix: bijlageEntity
 
 ## Version 3.0.0
 
--   Refactor: api output compliant with new metabox fields.
--   Feat: migration of existing items.
--   Feat: add address metabox group.
--   Chore: revisit metabox fields.
+-   Refactor: api output compliant with new metabox fields
+-   Feat: migration of existing items
+-   Feat: add address metabox group
+-   Chore: revisit metabox fields
 -   Feat: replace GF uploads with WP attachments admin
 
 ## Version 2.0.0

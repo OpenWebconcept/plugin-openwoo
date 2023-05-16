@@ -51,8 +51,8 @@ class OpenWOO
             'Beschrijving'                => $this->field('post_content', ''),
             'Samenvatting'                => $this->field('post_excerpt', ''),
             'Verzoeker'                   => $this->meta('Verzoeker', ''),
-            'Ontvangstdatum'              => $this->meta('Ontvangstdatum'),
-            'Besluitdatum'                => $this->meta('Besluitdatum'),
+            'Ontvangstdatum'              => $this->meta('Ontvangstdatum') ? $this->transformToEnglishDateFormat($this->meta('Ontvangstdatum')) : '',
+            'Besluitdatum'                => $this->meta('Besluitdatum') ? $this->transformToEnglishDateFormat($this->meta('Besluitdatum')) : '',
             'Behandelstatus'              => $this->meta('Behandelstatus', ''),
             'Besluit'                     => $this->meta('Besluit'),
             'Termijnoverschrijding'       => $this->meta('Termijnoverschrijding', ''),
@@ -194,5 +194,16 @@ class OpenWOO
     public function toArray(): array
     {
         return $this->data;
+    }
+
+    public function transformToEnglishDateFormat(string $date): string
+    {
+        $formattedDate = \DateTime::createFromFormat('d-m-Y', $date);
+
+        if (! $formattedDate instanceof \DateTime) {
+            return $date;
+        }
+
+        return $formattedDate->format('Y-m-d');
     }
 }
