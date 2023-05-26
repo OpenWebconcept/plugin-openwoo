@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## Version 1.0.14
+
+-   Fix: use global env array instead of getenv()
+
 ## Version 1.0.13
 
 -   Fix: improper casting

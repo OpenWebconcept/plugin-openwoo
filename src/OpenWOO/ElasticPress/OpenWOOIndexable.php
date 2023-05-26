@@ -78,7 +78,7 @@ class OpenWOOIndexable extends Post
 
     protected function getEnvironmentVariable(): string
     {
-        return getenv('APP_ENV');
+        return $_ENV['APP_ENV'] ?? '';
     }
 
     /**
