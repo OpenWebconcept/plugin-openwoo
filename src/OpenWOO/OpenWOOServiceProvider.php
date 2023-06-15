@@ -26,7 +26,6 @@ class OpenWOOServiceProvider extends ServiceProvider
         $this->plugin->loader->addAction('wp_insert_post_data', $this, 'fillTitle', 10, 1);
         $this->plugin->loader->addAction('wp_after_insert_post', $this, 'updateSavedPost', 10, 3);
         $this->plugin->loader->addAction('init', $this, 'registerPostTypes');
-        $this->plugin->loader->addAction('init', $this, 'registerTaxonomies');
         $this->plugin->loader->addAction('pre_get_posts', $this, 'orderByPublishedDate');
         (new RestAPIServiceProvider($this->plugin))->register();
         (new MigrateMetaboxValues())->register();
@@ -115,18 +114,5 @@ class OpenWOOServiceProvider extends ServiceProvider
             'menu_position'      => null,
             'supports'           => ['author', 'excerpt']
         ]);
-    }
-
-    public function registerTaxonomies(): void
-    {
-        $taxonomies = $this->plugin->config->get('taxonomies') ?? [];
-
-        if (empty($taxonomies)) {
-            return;
-        }
-
-        foreach ($taxonomies as $taxonomyName => $taxonomy) {
-            \register_taxonomy($taxonomyName, $taxonomy['object_types'], $taxonomy['args']);
-        }
     }
 }

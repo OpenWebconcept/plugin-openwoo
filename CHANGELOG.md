@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## Version 4.1.0
+
+-   Add show on taxonomy
+
 ## Version 4.0.2
 
 -   Refactor: display 'Ontvangstdatum' and 'Besluitdatum' date fields in English format within API

@@ -14,6 +14,8 @@ return [
         Yard\OpenWOO\OpenWOOServiceProvider::class,
         Yard\OpenWOO\ElasticPress\ElasticPressServiceProvider::class,
         Yard\OpenWOO\Metabox\MetaboxServiceProvider::class,
+        Yard\OpenWOO\Taxonomy\TaxonomyServiceProvider::class,
+        
         /**
          * Providers specific to the admin.
          */
