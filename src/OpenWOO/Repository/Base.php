@@ -10,11 +10,8 @@ use Yard\OpenWOO\Support\CreatesFields;
 
 abstract class Base
 {
-    /** @var string */
-    protected $posttype;
-
-    /** @var string */
-    protected $model;
+    protected string $posttype;
+    protected string $model;
 
     /**
      * Instance of the WP_Query object.
@@ -25,24 +22,18 @@ abstract class Base
 
     /**
      * Arguments for the WP_Query.
-     *
-     * @var array
      */
-    protected $queryArgs = [];
+    protected array $queryArgs = [];
 
     /**
      * Fields that need to be hidden.
-     *
-     * @var array
      */
-    protected $hidden = [];
+    protected array $hidden = [];
 
     /**
      * Dynamically added fields.
-     *
-     * @var array
      */
-    protected $fields = [];
+    protected array $fields = [];
 
     /**
      * Additional fields that needs to be added to an item.

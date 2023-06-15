@@ -642,42 +642,87 @@ msgstr "Verbindingstype \"%s\" bestaat niet"
 #~ msgid "This link does not work, go to our website: <a href=\"%s\">%s</a>"
 #~ msgstr "Deze link werkt niet, bekijk onze website: <a href=\"%s\">%s</a>"
 
-#: config/taxonomies.php:13
+#: config/taxonomies.php:12
 msgid "Types"
 msgstr "Typen"
 
-#: config/taxonomies.php:14
+#: config/taxonomies.php:13
 msgid "Type"
 msgstr "Type"
 
-#: config/taxonomies.php:15
+#: config/taxonomies.php:14
 msgid "Search types"
 msgstr "Zoek typen"
 
-#: config/taxonomies.php:16
+#: config/taxonomies.php:15
 msgid "All types"
 msgstr "Alle typen"
 
-#: config/taxonomies.php:17
+#: config/taxonomies.php:16
 msgid "Edit type"
 msgstr "Wijzig type"
 
-#: config/taxonomies.php:8
+#: config/taxonomies.php:17
 msgid "View type"
 msgstr "Bekijk type"
 
-#: config/taxonomies.php:19
+#: config/taxonomies.php:18
 msgid "Update type"
 msgstr "Type bijwerken"
 
-#: config/taxonomies.php:20
+#: config/taxonomies.php:19
 msgid "Add type"
 msgstr "Type toevoegen"
 
-#: config/taxonomies.php:21
+#: config/taxonomies.php:20
 msgid "New type name"
 msgstr "Nieuwe type naam"
 
-#: config/taxonomies.php:22
+#: config/taxonomies.php:21
 msgid "No types found"
 msgstr "Geen typen gevonden"
+
+#: config/taxonomies.php:33
+#: config/taxonomies.php:34
+msgid "Show on"
+msgstr "Tonen op"
+
+#: config/taxonomies.php:35
+msgid "Search show on"
+msgstr "Zoeken tonen op"
+
+#: config/taxonomies.php:36
+msgid "All show on"
+msgstr "Alle tonen op"
+
+#: config/taxonomies.php:37
+msgid "Edit show on"
+msgstr "Wijzig tonen op"
+
+#: config/taxonomies.php:38
+msgid "View show on"
+msgstr "Bekijk tonen on"
+
+#: config/taxonomies.php:39
+msgid "Update show on"
+msgstr "Tonen op bijwerken"
+
+#: config/taxonomies.php:40
+msgid "Add show on"
+msgstr "Voeg tonen op toe"
+
+#: config/taxonomies.php:41
+msgid "New show on"
+msgstr "Nieuwe tonen op"
+
+#: config/taxonomies.php:42
+msgid "No show on found"
+msgstr "Geen tonen op gevonden"
+
+#: src/OpenWOO/Taxonomy/TaxonomyController.php:17
+msgid "Additional explanation"
+msgstr "Aanvullende uitleg"
+
+#: src/OpenWOO/Taxonomy/TaxonomyController.php:18
+msgid "The slug value must be the ID of the blog you want to add as term. The ID is used for displaying the correct openwoo-items on every blog."
+msgstr "De waarde van de slug moet het ID zijn van de blog die je wilt toevoegen als term. Het ID wordt gebruikt om de juiste openwoo-items weer te geven op alle blogs."

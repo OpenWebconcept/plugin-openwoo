@@ -110,6 +110,10 @@ class ItemController
         $items = (new OpenWOORepository())
             ->query(apply_filters('yard/openwoo/rest-api/items/query', $this->getPaginatorParams($request)))
             ->query(apply_filters('yard/openwoo/rest-api/items/query', $this->getFilters($request)));
+        
+        if ($this->showOnParamIsValid($request)) {
+            $items->query(OpenWOORepository::addShowOnParameter($request->get_param('source')));
+        }
 
         $data = $items->all();
 
@@ -219,5 +223,22 @@ class ItemController
         }
 
         return $item;
+    }
+
+    /**
+     * Validate if show on param is valid.
+     * Param should be a numeric value.
+     */
+    protected function showOnParamIsValid(WP_REST_Request $request): bool
+    {
+        if (empty($request->get_param('source'))) {
+            return false;
+        }
+
+        if (! is_numeric($request->get_param('source'))) {
+            return false;
+        }
+
+        return true;
     }
 }

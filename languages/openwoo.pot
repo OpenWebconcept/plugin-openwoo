@@ -200,42 +200,87 @@ msgstr ""
 msgid "Connection type \"%s\" does not exist"
 msgstr ""
 
-#: config/taxonomies.php:13
+#: config/taxonomies.php:12
 msgid "Types"
 msgstr ""
 
-#: config/taxonomies.php:14
+#: config/taxonomies.php:13
 msgid "Type"
 msgstr ""
 
-#: config/taxonomies.php:15
+#: config/taxonomies.php:14
 msgid "Search types"
 msgstr ""
 
-#: config/taxonomies.php:16
+#: config/taxonomies.php:15
 msgid "All types"
 msgstr ""
 
-#: config/taxonomies.php:17
+#: config/taxonomies.php:16
 msgid "Edit type"
 msgstr ""
 
-#: config/taxonomies.php:8
+#: config/taxonomies.php:17
 msgid "View type"
 msgstr ""
 
-#: config/taxonomies.php:19
+#: config/taxonomies.php:18
 msgid "Update type"
 msgstr ""
 
-#: config/taxonomies.php:20
+#: config/taxonomies.php:19
 msgid "Add type"
 msgstr ""
 
-#: config/taxonomies.php:21
+#: config/taxonomies.php:20
 msgid "New type name"
 msgstr ""
 
-#: config/taxonomies.php:22
+#: config/taxonomies.php:21
 msgid "No types found"
+msgstr ""
+
+#: config/taxonomies.php:33
+#: config/taxonomies.php:34
+msgid "Show on"
+msgstr ""
+
+#: config/taxonomies.php:35
+msgid "Search show on"
+msgstr ""
+
+#: config/taxonomies.php:36
+msgid "All show on"
+msgstr ""
+
+#: config/taxonomies.php:37
+msgid "Edit show on"
+msgstr ""
+
+#: config/taxonomies.php:38
+msgid "View show on"
+msgstr ""
+
+#: config/taxonomies.php:39
+msgid "Update show on"
+msgstr ""
+
+#: config/taxonomies.php:40
+msgid "Add show on"
+msgstr ""
+
+#: config/taxonomies.php:41
+msgid "New show on"
+msgstr ""
+
+#: config/taxonomies.php:42
+msgid "No show on found"
+msgstr ""
+
+#: src/OpenWOO/Taxonomy/TaxonomyController.php:17
+msgid "Additional explanation"
+msgstr ""
+
+#: src/OpenWOO/Taxonomy/TaxonomyController.php:18
+msgid "The slug value must be the ID of the blog you want to add as term. The ID is used for displaying the correct openwoo-items on every blog."
 msgstr ""
