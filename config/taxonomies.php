@@ -3,11 +3,12 @@
 return [
     'openwoo-type' => [
         'object_types' => ['openwoo-item'],
-        'args'         => [
+        'args' => [
             'public' => true,
             'show_in_rest' => true,
             'hierarchical' => false,
             'meta_box_cb' => 'post_categories_meta_box',
+            'show_in_quick_edit' => false,
             'labels' => [
                 'name' => __('Types', OWO_LANGUAGE_DOMAIN),
                 'singular_name' => __('Type', OWO_LANGUAGE_DOMAIN),
@@ -24,11 +25,12 @@ return [
     ],
     'openwoo-show-on' => [
         'object_types' => ['openwoo-item'],
-        'args'         => [
+        'args' => [
             'public' => true,
             'show_in_rest' => true,
             'hierarchical' => false,
             'meta_box_cb' => 'post_categories_meta_box',
+            'show_in_quick_edit' => false,
             'labels' => [
                 'name' => __('Show on', OWO_LANGUAGE_DOMAIN),
                 'singular_name' => __('Show on', OWO_LANGUAGE_DOMAIN),

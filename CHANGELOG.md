@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## Version 4.1.2
+
+-   Refactor: hide taxonomies from quick edit menu
+
 ## Version 4.1.1
 
 -   Refactor: show on taxonomy method for explanation was called statically
