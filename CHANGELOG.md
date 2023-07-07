@@ -1,8 +1,12 @@
 # CHANGELOG
 
+## Version 4.1.1
+
+-   Refactor: show on taxonomy method for explanation was called statically
+
 ## Version 4.1.0
 
--   Add show on taxonomy
+-   Feat: Add show on taxonomy
 
 ## Version 4.0.2
 

@@ -11,7 +11,7 @@ class TaxonomyServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->plugin->loader->addAction('init', $this, 'registerTaxonomies');
-        $this->plugin->loader->addAction('openwoo-show-on_add_form_fields', TaxonomyController::class, 'addShowOnExplanation');
+        $this->plugin->loader->addAction('openwoo-show-on_add_form_fields', new TaxonomyController, 'addShowOnExplanation');
     }
 
     public function registerTaxonomies(): void
