@@ -139,7 +139,7 @@ msgid "Longitude"
 msgstr ""
 
 #: config/openwoo/metaboxes.php:261
-msgid "Lattitude"
+msgid "Latitude"
 msgstr ""
 
 #: config/openwoo/metaboxes.php:268

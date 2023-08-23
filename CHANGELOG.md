@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## Version 4.1.3
+
+-   Fix: typo metabox field Lattitude -> Latitude
+
 ## Version 4.1.2
 
 -   Refactor: hide taxonomies from quick edit menu
