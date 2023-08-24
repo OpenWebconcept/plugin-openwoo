@@ -12,7 +12,7 @@ class Response extends WP_REST_Response
 {
     /**
      * @OA\Property(
-     *   property="WOOverzoeken",
+     *   property="WOOVerzoeken",
      *   type="array",
      *   @OA\Items(ref="#/components/schemas/OpenWOO"),
      *   @OA\Link(link="OpenWOORepository", ref="#/components/links/OpenWOORepository")
