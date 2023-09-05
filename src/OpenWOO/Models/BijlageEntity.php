@@ -24,8 +24,32 @@ class BijlageEntity extends AbstractEntity
             'Status_Bijlage' => $this->data[self::PREFIX . 'Status_Bijlage'] ?? '',
             'Tijdstip_laatste_wijziging_bijlage' => $this->getTime(),
             'Titel_Bijlage' => $this->data[self::PREFIX . 'Titel_Bijlage'] ?? '',
-            'URL_Bijlage' => $this->getAttachmentURL() ? $this->getAttachmentURL() : $this->data[self::PREFIX . 'URL_Bijlage'] ?? ''
+            'URL_Bijlage' => $this->getAttachmentURL() ? $this->getAttachmentURL() : $this->data[self::PREFIX . 'URL_Bijlage'] ?? '',
+			'Grootte_Bijlage' => $this->getFileSize()
         ];
+    }
+
+	/**
+     * Wordpress uploads are connected in the database by an object its ID.
+     * Use this ID to get the URL of the upload.
+     */
+    protected function getFileSize(): int
+    {
+        $objectID = $this->data[self::PREFIX . 'Bijlage'] ?? '';
+
+        if (is_array($objectID)) {
+            $objectID = $objectID[0];
+        }
+
+        if (empty($objectID)) {
+            return '';
+        }
+
+        if (! is_numeric($objectID)) {
+            return $objectID;
+        }
+
+        return \wp_filesize(\get_attached_file($objectID)) ?: '';
     }
 
     /**
