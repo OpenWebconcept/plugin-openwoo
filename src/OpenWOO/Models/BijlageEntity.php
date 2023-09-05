@@ -42,14 +42,14 @@ class BijlageEntity extends AbstractEntity
         }
 
         if (empty($objectID)) {
-            return '';
+            return 0;
         }
 
         if (! is_numeric($objectID)) {
-            return $objectID;
+            return 0;
         }
 
-        return \wp_filesize(\get_attached_file($objectID)) ?: '';
+        return \wp_filesize(\get_attached_file($objectID)) ?: 0;
     }
 
     /**
