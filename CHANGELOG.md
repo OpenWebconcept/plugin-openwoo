@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## Version 4.1.3
+
+-   Feat: add file size of attachments to the api response
+
 ## Version 4.1.2
 
 -   Refactor: hide taxonomies from quick edit menu
