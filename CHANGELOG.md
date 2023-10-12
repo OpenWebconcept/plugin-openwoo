@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## Version 4.1.4
+
+-   Fix: file size and URL's of attachments in the api response
+-	Fix: composing $uploadFullPath inside GravityFormsUploadToMediaLibrary trait
+
 ## Version 4.1.3
 
 -   Feat: add file size of attachments to the api response
