@@ -26,27 +26,57 @@ class BijlageEntity extends AbstractEntity
             'Status_Bijlage' => $this->data[self::PREFIX . 'Status_Bijlage'] ?? '',
             'Tijdstip_laatste_wijziging_bijlage' => $this->getTime(),
             'Titel_Bijlage' => $this->data[self::PREFIX . 'Titel_Bijlage'] ?? '',
-            'URL_Bijlage' => $this->getAttachmentURL() ? $this->getAttachmentURL() : $this->data[self::PREFIX . 'URL_Bijlage'] ?? '',
+            'URL_Bijlage' => $this->getAttachmentURL(),
             'Grootte_Bijlage' => $this->getFileSize()
         ];
     }
 
     /**
-     * Wordpress uploads are connected in the database by an object its ID.
-     * Use this ID to get the URL of the upload.
+     * Tries different ways to retrieve the URL in the following order:
+     * - 'woo_Bijlage_id' (is set when the post is saved in the editor)
+     * - 'woo_Bijlage' (other applications might use the 'woo_Bijlage' field to insert the URL to the attachment directly)
+     * - 'woo_URL_Bijlage' (is used when there is no file uploaded directly in to Wordpress)
      */
     protected function getAttachmentURL(): string
     {
-        return \wp_get_attachment_url($this->getAttachmentObjectID()) ?: '';
+        // First try by using the 'woo_Bijlage_id' field.
+        $url = \wp_get_attachment_url($this->getAttachmentObjectID()) ?: '';
+
+        if (! empty($url)) {
+            return $url;
+        }
+
+        // Secondly try by using the 'woo_Bijlage' field.
+        $objectID = $this->data[self::PREFIX . 'Bijlage'] ?? '';
+
+        if (is_array($objectID)) {
+            $objectID = $objectID[0];
+        }
+
+        if (empty($objectID)) {
+            return $this->data[self::PREFIX . 'URL_Bijlage'] ?? ''; // Still empty? Try 'woo_URL_Bijlage' field.
+        }
+
+        if (! is_numeric($objectID)) { // If it is not an numeric value than it is an URL already.
+            return $objectID;
+        }
+
+        return \wp_get_attachment_url($objectID) ?: '';
     }
 
-    /**
-     * Wordpress uploads are connected in the database by an object its ID.
-     * Use this ID to get the file size of the upload.
-     */
     protected function getFileSize(): int
     {
+        // First try by using the 'woo_Bijlage_id' field.
         $attachedFile = \get_attached_file($this->getAttachmentObjectID());
+
+        if (! empty($attachedFile)) {
+            return \wp_filesize($attachedFile);
+        }
+
+        // Secondly try by using the 'woo_Bijlage' field.
+        $attachedFileURL = $this->getAttachmentURL();
+        $objectID = \attachment_url_to_postid($attachedFileURL);
+        $attachedFile = \get_attached_file($objectID);
 
         return $attachedFile ? \wp_filesize($attachedFile) : 0;
     }
