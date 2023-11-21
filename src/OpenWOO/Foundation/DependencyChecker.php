@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Yard\OpenWOO\Foundation;
 
@@ -79,7 +81,7 @@ class DependencyChecker
     {
         add_action('admin_notices', function () {
             $list = '<p>' . __(
-                'The following plugins are required to use the OpenWOO:',
+                'De volgende plug-ins zijn vereist om gebruik te kunnen maken van de OpenWOO plug-in:',
                 OWO_LANGUAGE_DOMAIN
             ) . '</p><ol>';
 
@@ -107,7 +109,7 @@ class DependencyChecker
                 return;
             }
             $list = '<p>' . __(
-                'The following plugins or libraries are suggested and supported to be used with the OpenWOO:',
+                'De volgende plug-ins of bibliotheken worden aangeraden en worden ondersteund voor het gebruik van de OpenWOO plugin:',
                 OWO_LANGUAGE_DOMAIN
             ) . '</p><ol>';
 
@@ -147,7 +149,7 @@ class DependencyChecker
     private function checkClass(array $dependency)
     {
         if (! class_exists($dependency['name'])) {
-            $this->markFailed($dependency, __('Class does not exist', OWO_LANGUAGE_DOMAIN));
+            $this->markFailed($dependency, __('Klasse bestaat niet', OWO_LANGUAGE_DOMAIN));
 
             return;
         }
@@ -167,7 +169,7 @@ class DependencyChecker
         }
 
         if (! $this->checkPluginActive($dependency)) {
-            $this->markFailed($dependency, __('Inactive', OWO_LANGUAGE_DOMAIN));
+            $this->markFailed($dependency, __('Inactief', OWO_LANGUAGE_DOMAIN));
 
             return;
         }
@@ -175,7 +177,7 @@ class DependencyChecker
         // If there is a version lock set on the dependency...
         if (isset($dependency['version'])) {
             if (! $this->checkVersion($dependency)) {
-                $this->markFailed($dependency, __('Minimal version:', OWO_LANGUAGE_DOMAIN) . ' <b>' . $dependency['version'] . '</b>');
+                $this->markFailed($dependency, __('Minimale versie:', OWO_LANGUAGE_DOMAIN) . ' <b>' . $dependency['version'] . '</b>');
             }
         }
     }
@@ -197,10 +199,6 @@ class DependencyChecker
 
     /**
      * Checks the installed version of the plugin.
-     *
-     * @param array $dependency
-     *
-     * @return bool
      */
     private function checkVersion(array $dependency): bool
     {

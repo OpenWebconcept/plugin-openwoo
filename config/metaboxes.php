@@ -13,7 +13,7 @@ return [
         'fields' => [
             'general' => [
                 [
-                    'name' => __('Kenmerk *', OWO_LANGUAGE_DOMAIN),
+                    'name' => __('Kenmerk', OWO_LANGUAGE_DOMAIN) . ' *',
                     'id' => 'woo_Kenmerk',
                     'type' => 'text',
                     'attributes' => [
@@ -26,7 +26,7 @@ return [
                     'type' => 'textarea',
                 ],
                 [
-                    'name' => __('Onderwerp *', OWO_LANGUAGE_DOMAIN),
+                    'name' => __('Onderwerp', OWO_LANGUAGE_DOMAIN) . ' *',
                     'id' => 'woo_Onderwerp',
                     'type' => 'text',
                     'attributes' => [
@@ -41,7 +41,7 @@ return [
                 ],
                 [
                     'name' => __('Termijnoverschrijding', OWO_LANGUAGE_DOMAIN),
-                    'id'=> 'woo_Termijnoverschrijding',
+                    'id' => 'woo_Termijnoverschrijding',
                     'type' => 'select',
                     'options' => [
                         '' => '',
@@ -50,7 +50,7 @@ return [
                     ],
                 ],
                 [
-                    'name' => __('Ontvangstdatum *', OWO_LANGUAGE_DOMAIN),
+                    'name' => __('Ontvangstdatum', OWO_LANGUAGE_DOMAIN) . ' *',
                     'id' => 'woo_Ontvangstdatum',
                     'type' => 'text_date',
                     'date_format' => 'd-m-Y',
@@ -60,7 +60,7 @@ return [
                     ],
                 ],
                 [
-                    'name' => __('Besluitdatum *', OWO_LANGUAGE_DOMAIN),
+                    'name' => __('Besluitdatum', OWO_LANGUAGE_DOMAIN) . ' *',
                     'id' => 'woo_Besluitdatum',
                     'type' => 'text_date',
                     'js_options' => [
@@ -78,15 +78,15 @@ return [
                     ],
                 ],
                 [
-                    'name' => __('Besluit *', OWO_LANGUAGE_DOMAIN),
+                    'name' => __('Besluit', OWO_LANGUAGE_DOMAIN) . ' *',
                     'id' => 'woo_Besluit',
                     'type' => 'select',
                     'options' => [
                         '' => '',
-                        'Openbaar gemaakt' => 'Openbaar gemaakt',
-                        'Niet openbaar gemaakt' => 'Niet openbaar gemaakt',
-                        'Deels openbaar gemaakt' => 'Deels openbaar gemaakt',
-                        'Reeds openbaar' => 'Reeds openbaar',
+                        'Openbaar gemaakt' => __('Openbaar gemaakt', OWO_LANGUAGE_DOMAIN),
+                        'Niet openbaar gemaakt' => __('Niet openbaar gemaakt', OWO_LANGUAGE_DOMAIN),
+                        'Deels openbaar gemaakt' => __('Deels openbaar gemaakt', OWO_LANGUAGE_DOMAIN),
+                        'Reeds openbaar' => __('Reeds openbaar', OWO_LANGUAGE_DOMAIN),
                     ],
                     'attributes' => [
                         'required' => 'required',

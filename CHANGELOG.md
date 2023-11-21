@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## Version 4.2
+
+-	Feat: implement external attachments via fileserver settings
+
 ## Version 4.1.4
 
 -   Fix: file size and URL's of attachments in the api response

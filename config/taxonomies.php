@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 return [
     'openwoo-type' => [
@@ -12,14 +14,14 @@ return [
             'labels' => [
                 'name' => __('Types', OWO_LANGUAGE_DOMAIN),
                 'singular_name' => __('Type', OWO_LANGUAGE_DOMAIN),
-                'search_items' => __('Search types', OWO_LANGUAGE_DOMAIN),
-                'all_items' => __('All types', OWO_LANGUAGE_DOMAIN),
-                'edit_item' => __('Edit type', OWO_LANGUAGE_DOMAIN),
-                'view_item' => __('View type', OWO_LANGUAGE_DOMAIN),
-                'update_item' => __('Update type', OWO_LANGUAGE_DOMAIN),
-                'add_new_item' => __('Add type', OWO_LANGUAGE_DOMAIN),
-                'new_item_name' => __('New type name', OWO_LANGUAGE_DOMAIN),
-                'not_found' => __('No types found', OWO_LANGUAGE_DOMAIN)
+                'search_items' => __('Zoek typen', OWO_LANGUAGE_DOMAIN),
+                'all_items' => __('Alle typen', OWO_LANGUAGE_DOMAIN),
+                'edit_item' => __('Wijzig type', OWO_LANGUAGE_DOMAIN),
+                'view_item' => __('Bekijk type', OWO_LANGUAGE_DOMAIN),
+                'update_item' => __('Werk type bij', OWO_LANGUAGE_DOMAIN),
+                'add_new_item' => __('Voeg type toe', OWO_LANGUAGE_DOMAIN),
+                'new_item_name' => __('Nieuwe type naam', OWO_LANGUAGE_DOMAIN),
+                'not_found' => __('Geen typen gevonden', OWO_LANGUAGE_DOMAIN)
             ]
         ],
     ],
