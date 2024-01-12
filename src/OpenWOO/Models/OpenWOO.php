@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Yard\OpenWOO\Models;
 
@@ -40,30 +42,31 @@ class OpenWOO
     public function transform(): array
     {
         $data = [
-            'UUID'                        => $this->meta('UUID', ''),
-            'ID'                          => $this->meta('Kenmerk', ''),
-            'Object_ID'                   => $this->data['ID'],
-            'Portal_url'                  => $this->composePortalURL(),
-            'Behandelend_bestuursorgaan'  => $this->meta('Behandelend_bestuursorgaan'),
+            'UUID' => $this->meta('UUID', ''),
+            'ID' => $this->meta('Kenmerk', ''),
+            'Object_ID' => $this->data['ID'],
+            'Publicatie_datum' => $this->data['post_date'] ?? '',
+            'Portal_url' => $this->composePortalURL(),
+            'Behandelend_bestuursorgaan' => $this->meta('Behandelend_bestuursorgaan'),
             'Ontvanger_informatieverzoek' => $this->meta('Ontvanger_informatieverzoek', ''),
-            'Volgnummer'                  => $this->meta('Volgnummer', ''),
-            'Titel'                       => $this->meta('Onderwerp', ''),
-            'Beschrijving'                => $this->field('post_content', ''),
-            'Samenvatting'                => $this->field('post_excerpt', ''),
-            'Verzoeker'                   => $this->meta('Verzoeker', ''),
-            'Ontvangstdatum'              => $this->meta('Ontvangstdatum') ? $this->transformToEnglishDateFormat($this->meta('Ontvangstdatum')) : '',
-            'Besluitdatum'                => $this->meta('Besluitdatum') ? $this->transformToEnglishDateFormat($this->meta('Besluitdatum')) : '',
-            'Behandelstatus'              => $this->meta('Behandelstatus', ''),
-            'Besluit'                     => $this->meta('Besluit'),
-            'Termijnoverschrijding'       => $this->meta('Termijnoverschrijding', ''),
-            'URL_informatieverzoek'       => $this->getAttachmentURL('Bijlage_informatieverzoek'),
-            'URL_inventarisatielijst'     => $this->getAttachmentURL('Bijlage_inventarisatielijst'),
-            'URL_besluit'                 => $this->getAttachmentURL('Bijlage_besluit'),
-            'Geografisch_gebied'          => $this->meta('Geografisch_gebied', ''),
-            'BAG_ID'                      => $this->meta('BAG_ID', ''),
-            'BGT_ID'                      => $this->meta('BGT_ID', ''),
-            'Postcodegebied'              => $this->meta('Postcodegebied', ''),
-            'Adres'                       => $this->meta('Adres', ''),
+            'Volgnummer' => $this->meta('Volgnummer', ''),
+            'Titel' => $this->meta('Onderwerp', ''),
+            'Beschrijving' => $this->field('post_content', ''),
+            'Samenvatting' => $this->field('post_excerpt', ''),
+            'Verzoeker' => $this->meta('Verzoeker', ''),
+            'Ontvangstdatum' => $this->meta('Ontvangstdatum') ? $this->transformToEnglishDateFormat($this->meta('Ontvangstdatum')) : '',
+            'Besluitdatum' => $this->meta('Besluitdatum') ? $this->transformToEnglishDateFormat($this->meta('Besluitdatum')) : '',
+            'Behandelstatus' => $this->meta('Behandelstatus', ''),
+            'Besluit' => $this->meta('Besluit'),
+            'Termijnoverschrijding' => $this->meta('Termijnoverschrijding', ''),
+            'URL_informatieverzoek' => $this->getAttachmentURL('Bijlage_informatieverzoek'),
+            'URL_inventarisatielijst' => $this->getAttachmentURL('Bijlage_inventarisatielijst'),
+            'URL_besluit' => $this->getAttachmentURL('Bijlage_besluit'),
+            'Geografisch_gebied' => $this->meta('Geografisch_gebied', ''),
+            'BAG_ID' => $this->meta('BAG_ID', ''),
+            'BGT_ID' => $this->meta('BGT_ID', ''),
+            'Postcodegebied' => $this->meta('Postcodegebied', ''),
+            'Adres' => $this->meta('Adres', ''),
         ];
 
         if ($coords = COORDSEntity::make($this->meta('COORDS', []))->get()) {
@@ -126,7 +129,7 @@ class OpenWOO
             \untrailingslashit($options->getPortalURL()),
             'openwoo',
             \sanitize_title($this->meta('Onderwerp', '')),
-            $this->meta('UUID', '')
+            $this->meta('UUID', ''),
         ]);
 
         if (count($urlParts) < 4) {
@@ -187,7 +190,7 @@ class OpenWOO
         if (! is_null($default) && gettype($data) !== gettype($default)) {
             return $default;
         }
-    
+
         return $data;
     }
 
