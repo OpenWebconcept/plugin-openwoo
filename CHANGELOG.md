@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## Version 4.2
+
+- Feat: implement setting for configuring a fileserver URL
+
 ## Version 4.1.5
 
 - Feat: add publication date to the api response
