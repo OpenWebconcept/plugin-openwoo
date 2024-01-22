@@ -66,16 +66,25 @@ class OpenWOO
             'BAG_ID' => $this->meta('BAG_ID', ''),
             'BGT_ID' => $this->meta('BGT_ID', ''),
             'Postcodegebied' => $this->meta('Postcodegebied', ''),
-            'Adres' => $this->meta('Adres', ''),
         ];
 
-        if ($coords = COORDSEntity::make($this->meta('COORDS', []))->get()) {
-            $data['COORDS'] = $coords;
-        }
+		foreach ($this->meta('Adres', []) as $adres) {
+			if (is_array($adres) && AdresEntity::make($adres)->get()) {
+				$data['Adres'] = AdresEntity::make($adres)->get();
+			}
+		}
 
-        if ($geografischePositie = GeografischePositieEntity::make($this->meta('Geografische_positie', []))->get()) {
-            $data['Geografische_positie'] = $geografischePositie;
-        }
+		foreach ($this->meta('COORDS', []) as $coords) {
+			if (is_array($coords) && COORDSEntity::make($coords)->get()) {
+				$data['COORDS'] = COORDSEntity::make($coords)->get();
+			}
+		}
+
+		foreach ($this->meta('Geografische_positie', []) as $geografischePositie) {
+			if (is_array($geografischePositie) && GeografischePositieEntity::make($geografischePositie)->get()) {
+				$data['Geografische_positie'] = GeografischePositieEntity::make($geografischePositie)->get();
+			}
+		}
 
         foreach ($this->meta('Bijlagen', []) as $bijlage) {
             if (is_array($bijlage) && BijlageEntity::make($bijlage)->get()) {
