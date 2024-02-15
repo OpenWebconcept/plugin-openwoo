@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## Version 4.2.4
+
+- Fix: typo metabox field Lattitude -> Latitude
+
 ## Version 4.2.3
 
 - Fix: typo in OpenWOOIndexable slug

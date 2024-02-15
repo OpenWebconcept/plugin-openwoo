@@ -200,7 +200,7 @@ return [
                             'type' => 'text',
                         ],
                         [
-                            'name' => __('Lattitude', OWO_LANGUAGE_DOMAIN),
+                            'name' => __('Latitude', OWO_LANGUAGE_DOMAIN),
                             'id'   => 'woo_Lattitude',
                             'type' => 'text',
                         ],
