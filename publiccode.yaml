@@ -1,0 +1,52 @@
+publiccodeYmlVersion: '0.2'
+
+name: "plugin-openwoo"
+applicationSuite: 'OpenWebconcept'
+url: 'https://github.com/OpenWebconcept/plugin-openwoo'
+releaseDate: '2022-05-06'
+
+platforms:
+    - 'web'
+
+categories:
+    - 'application-development'
+
+developmentStatus: 'Production'
+
+softwareType: 'softwareAddon'
+
+description:
+    en:
+        genericName: 'Yard | OpenWOO'
+        shortDescription: 'Through this plugin, OpenWOO requests can be managed'
+        longDescription: 'Through this plugin, OpenWOO requests can be managed'
+    nl:
+        genericName: 'Yard | OpenWOO'
+        shortDescription: 'Middels deze plugin kunnen OpenWOO verzoeken beheerd worden'
+        longDescription: 'Middels deze plugin kunnen OpenWOO verzoeken beheerd worden'
+
+legal:
+    license: 'EUPL-1.2'
+    repoOwner: 'Yard | Digital Agency'
+
+dependsOn:
+    open:
+		- name: 'extended-cpts'
+		- versionMin: 4.5.2
+		- name: 'cmb2'
+		- versionMin: 2.10.1
+        - name: 'WordPress'
+        - versionMin: 6.0.0
+
+intendedAudience:
+    countries:
+        - nl
+    scope:
+        - government
+
+maintenance:
+    contractors:
+        - name: 'Yard | Digital Agency'
+          website: 'https://www.yard.nl'
+          email: 'owc@yard.nl'
+    type: 'contract'
