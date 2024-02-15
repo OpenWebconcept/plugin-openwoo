@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Yard\OpenWOO\Models;
 
@@ -12,9 +14,12 @@ class COORDSEntity extends AbstractEntity
             return [];
         }
 
+        $x = $this->data[self::PREFIX . 'X'] ?? null;
+        $y = $this->data[self::PREFIX . 'Y'] ?? null;
+
         return [
-            'X' => ! empty($this->data[self::PREFIX . 'X']) ? (int) $this->data[self::PREFIX . 'X'] : '',
-            'Y' => ! empty($this->data[self::PREFIX . 'Y']) ? (int) $this->data[self::PREFIX . 'Y'] : '',
+            'X' => ! empty($x) && is_numeric($x) ? (float) $x : '',
+            'Y' => ! empty($y) && is_numeric($y) ? (float) $y : '',
         ];
     }
 }

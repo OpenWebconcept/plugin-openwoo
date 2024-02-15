@@ -6,7 +6,7 @@ declare(strict_types=1);
  * Plugin Name:       Yard | OpenWOO
  * Plugin URI:        https://www.yard.nl/
  * Description:       Adds OpenWOO implementation
- * Version:           4.2.1
+ * Version:           4.2.2
  * Author:            Yard | Digital Agency
  * Author URI:        https://www.yard.nl/
  * License:           GPL-3.0

@@ -66,26 +66,46 @@ class OpenWOO
             'BAG_ID' => $this->meta('BAG_ID', ''),
             'BGT_ID' => $this->meta('BGT_ID', ''),
             'Postcodegebied' => $this->meta('Postcodegebied', ''),
-            'Adres' => $this->meta('Adres', ''),
         ];
 
-        if ($coords = COORDSEntity::make($this->meta('COORDS', []))->get()) {
-            $data['COORDS'] = $coords;
+        foreach ($this->meta('Adres', []) as $adres) {
+            if (is_array($adres) && AdresEntity::make($adres)->get()) {
+                $data['Adres'] = AdresEntity::make($adres)->get();
+            }
         }
 
-        if ($geografischePositie = GeografischePositieEntity::make($this->meta('Geografische_positie', []))->get()) {
-            $data['Geografische_positie'] = $geografischePositie;
+        foreach ($this->meta('COORDS', []) as $coords) {
+            $coords = COORDSEntity::make(is_array($coords) ? $coords : [])->get();
+
+            if (is_array($coords) && ! empty($coords)) {
+                $data['COORDS'] = $coords;
+
+                break;
+            }
+        }
+
+        foreach ($this->meta('Geografische_positie', []) as $geografischePositie) {
+            $geografischePositie = GeografischePositieEntity::make(is_array($geografischePositie) ? $geografischePositie : [])->get();
+
+            if (is_array($geografischePositie) && ! empty($geografischePositie)) {
+                $data['Geografische_positie'] = $geografischePositie;
+
+                break;
+            }
         }
 
         foreach ($this->meta('Bijlagen', []) as $bijlage) {
-            if (is_array($bijlage) && BijlageEntity::make($bijlage)->get()) {
-                $data['Bijlagen'][] = BijlageEntity::make($bijlage)->get();
+            $bijlage = BijlageEntity::make(is_array($bijlage) ? $bijlage : [])->get();
+
+            if (is_array($bijlage) && ! empty($bijlage)) {
+                $data['Bijlagen'][] = $bijlage;
             }
         }
 
         foreach ($this->meta('Themas', []) as $thema) {
-            if (is_array($thema) && ThemaEntity::make($thema)->get()) {
-                $data['Themas'][] = ThemaEntity::make($thema)->get();
+            $thema = ThemaEntity::make(is_array($thema) ? $thema : [])->get();
+            if (is_array($thema) && ! empty($thema)) {
+                $data['Themas'][] = $thema;
             }
         }
 

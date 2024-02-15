@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## Version 4.2.2
+
+- Feat: add 'Adres' model
+- Fix: unhandled multidimensional arrays from AdresEntity, COORDSEntity and GeografischePositieEntity
+
 ## Version 4.2.1
 
 - Feat: use 'samenvatting' meta first with the post_excerpt as fallback
