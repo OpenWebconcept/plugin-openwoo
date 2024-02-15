@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## Version 4.2.3
+
+- Fix: typo in OpenWOOIndexable slug
+- Feat: add missing fields that are needed by ElasticPress in search queries
+- Chore: add publiccode.yaml
+- Chore: Update license to EUPL 1.2
+
 ## Version 4.2.2
 
 - Feat: add 'Adres' model
