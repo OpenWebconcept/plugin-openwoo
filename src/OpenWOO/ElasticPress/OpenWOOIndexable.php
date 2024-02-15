@@ -103,6 +103,7 @@ class OpenWOOIndexable extends Post
             'post_date'             => $post_date,
             'post_date_gmt'         => $post_date_gmt,
             'title'                 => $post->post_title,
+            'post_title'			=> $post->post_title,
             'excerpt'               => $post->post_excerpt,
             'content'               => $this->prepare_meta_types($this->prepare_meta($post)), // post_meta removed in 2.4
             'post_name'             => $post->post_name,
@@ -112,6 +113,7 @@ class OpenWOOIndexable extends Post
             'post_mime_type'        => $post->post_mime_type,
             'permalink'             => \get_permalink($post_id),
             'meta'                  => $this->prepare_meta_types($this->prepare_meta($post)), // post_meta removed in 2.4
+            'post_status'			=> $post->post_status,
         ];
 
         // Turn back on updated_postmeta hook
