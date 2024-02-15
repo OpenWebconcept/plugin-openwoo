@@ -52,7 +52,7 @@ class OpenWOO
             'Volgnummer' => $this->meta('Volgnummer', ''),
             'Titel' => $this->meta('Onderwerp', ''),
             'Beschrijving' => $this->field('post_content', ''),
-            'Samenvatting' => $this->field('post_excerpt', ''),
+            'Samenvatting' => $this->meta('Samenvatting', '') ?: $this->field('post_excerpt', ''),
             'Verzoeker' => $this->meta('Verzoeker', ''),
             'Ontvangstdatum' => $this->meta('Ontvangstdatum') ? $this->transformToEnglishDateFormat($this->meta('Ontvangstdatum')) : '',
             'Besluitdatum' => $this->meta('Besluitdatum') ? $this->transformToEnglishDateFormat($this->meta('Besluitdatum')) : '',

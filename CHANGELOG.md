@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## Version 4.2.1
+
+- Feat: use 'samenvatting' meta first with the post_excerpt as fallback
+
 ## Version 4.2
 
 - Feat: implement setting for configuring a fileserver URL
