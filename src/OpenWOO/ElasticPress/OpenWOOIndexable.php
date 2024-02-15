@@ -10,7 +10,7 @@ use Yard\OpenWOO\Repository\OpenWOORepository;
 
 class OpenWOOIndexable extends Post
 {
-    public $slug = 'openwob-item';
+    public $slug = 'openwoo-item';
     protected OpenWOORepository $repository;
     protected Config $config;
     public $labels = [];
