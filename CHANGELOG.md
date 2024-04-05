@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## Version 4.2.5
+
+- Chore: Updated CMB2 to version 2.11.0
+
 ## Version 4.2.4
 
 - Fix: typo metabox field Lattitude -> Latitude
