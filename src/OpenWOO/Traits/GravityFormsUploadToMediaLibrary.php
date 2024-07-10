@@ -70,18 +70,9 @@ trait GravityFormsUploadToMediaLibrary
 
     protected function getFileFromGravityForms(string $url): string
     {
-        $ch = curl_init();
+        $result = wp_remote_get($url);
 
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_HTTPGET, true);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-
-        $externalFile = curl_exec($ch);
-
-        curl_close($ch);
-
-        return $externalFile ?: '';
+        return $result && ! is_wp_error($result) ? wp_remote_retrieve_body($result) : '';
     }
 
     protected function insertAttachment(string $uploadFullPath, string $externalFile, string $uploadFilename): int
@@ -99,9 +90,9 @@ trait GravityFormsUploadToMediaLibrary
 
         $insertArgs = [
             'post_mime_type' => $filetypeWP['type'] ?? '',
-            'post_title'     => $uploadFilename,
-            'post_content'   => '',
-            'post_status'    => 'inherit',
+            'post_title' => $uploadFilename,
+            'post_content' => '',
+            'post_status' => 'inherit',
         ];
 
         $attachmentID = \wp_insert_attachment($insertArgs, $uploadFullPath, 0, true);
