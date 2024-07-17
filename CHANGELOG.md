@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## Version 4.2.7
+
+- Feat: add new fields with double negation for upload status in URLs ([#16](https://github.com/OpenWebconcept/plugin-openwoo/pull/16/files)) @rmpel
+
 ## Version 4.2.6
 
 - Refactor: switch out cURL for wp_remote_get so WordPress filters and such work ([#15](https://github.com/OpenWebconcept/plugin-openwoo/pull/15)) @rmpel
