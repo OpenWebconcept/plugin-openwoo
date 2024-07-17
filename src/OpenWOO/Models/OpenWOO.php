@@ -113,9 +113,9 @@ class OpenWOO
     }
 
     /**
-     * Wordpress uploads are connected in the database by an object its ID.
+     * WordPress uploads are connected in the database by an object its ID.
      * Use this ID to get the URL of the upload.
-     * External URL's are an URL already so there is no further action required.
+     * External URLs are a URL already so there is no further action required.
      */
     protected function getAttachmentURL(string $internalMetaKeyURL): string
     {
