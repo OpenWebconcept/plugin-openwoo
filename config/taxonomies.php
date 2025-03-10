@@ -10,16 +10,16 @@ return [
             'meta_box_cb' => 'post_categories_meta_box',
             'show_in_quick_edit' => false,
             'labels' => [
-                'name' => __('Types', OWO_LANGUAGE_DOMAIN),
-                'singular_name' => __('Type', OWO_LANGUAGE_DOMAIN),
-                'search_items' => __('Search types', OWO_LANGUAGE_DOMAIN),
-                'all_items' => __('All types', OWO_LANGUAGE_DOMAIN),
-                'edit_item' => __('Edit type', OWO_LANGUAGE_DOMAIN),
-                'view_item' => __('View type', OWO_LANGUAGE_DOMAIN),
-                'update_item' => __('Update type', OWO_LANGUAGE_DOMAIN),
-                'add_new_item' => __('Add type', OWO_LANGUAGE_DOMAIN),
-                'new_item_name' => __('New type name', OWO_LANGUAGE_DOMAIN),
-                'not_found' => __('No types found', OWO_LANGUAGE_DOMAIN)
+                'name' => __('Typen', 'openwoo'),
+                'singular_name' => __('Type', 'openwoo'),
+                'search_items' => __('Zoek typen', 'openwoo'),
+                'all_items' => __('Alle typen', 'openwoo'),
+                'edit_item' => __('Type bewerken', 'openwoo'),
+                'view_item' => __('Type bekijken', 'openwoo'),
+                'update_item' => __('Type bijwerken', 'openwoo'),
+                'add_new_item' => __('Type toevoegen', 'openwoo'),
+                'new_item_name' => __('Nieuw type naam', 'openwoo'),
+                'not_found' => __('Geen typen gevonden', 'openwoo')
             ]
         ],
     ],
@@ -32,16 +32,16 @@ return [
             'meta_box_cb' => 'post_categories_meta_box',
             'show_in_quick_edit' => false,
             'labels' => [
-                'name' => __('Show on', OWO_LANGUAGE_DOMAIN),
-                'singular_name' => __('Show on', OWO_LANGUAGE_DOMAIN),
-                'search_items' => __('Search show on', OWO_LANGUAGE_DOMAIN),
-                'all_items' => __('All show on', OWO_LANGUAGE_DOMAIN),
-                'edit_item' => __('Edit show on', OWO_LANGUAGE_DOMAIN),
-                'view_item' => __('View show on', OWO_LANGUAGE_DOMAIN),
-                'update_item' => __('Update show on', OWO_LANGUAGE_DOMAIN),
-                'add_new_item' => __('Add show on', OWO_LANGUAGE_DOMAIN),
-                'new_item_name' => __('New show on', OWO_LANGUAGE_DOMAIN),
-                'not_found' => __('No show on found', OWO_LANGUAGE_DOMAIN)
+                'name' => __('Tonen op', 'openwoo'),
+                'singular_name' => __('Tonen op', 'openwoo'),
+                'search_items' => __('Zoek tonen op', 'openwoo'),
+                'all_items' => __('Alle tonen op', 'openwoo'),
+                'edit_item' => __('Tonen op bewerken', 'openwoo'),
+                'view_item' => __('Tonen op bekijken', 'openwoo'),
+                'update_item' => __('Tonen op bijwerken', 'openwoo'),
+                'add_new_item' => __('Tonen op toevoegen', 'openwoo'),
+                'new_item_name' => __('Nieuw tonen op', 'openwoo'),
+                'not_found' => __('Geen tonen op gevonden', 'openwoo')
             ]
         ],
     ],

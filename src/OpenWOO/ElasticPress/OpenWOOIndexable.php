@@ -22,8 +22,8 @@ class OpenWOOIndexable extends Post
     {
         $this->config = $config;
         $this->labels = [
-            'plural'   => esc_html__('OpenWOO items', OWO_LANGUAGE_DOMAIN),
-            'singular' => esc_html__('OpenWOO item', OWO_LANGUAGE_DOMAIN),
+            'plural'   => esc_html__('OpenWOO items', 'openwoo'),
+            'singular' => esc_html__('OpenWOO item', 'openwoo'),
         ];
         $this->repository = $repository;
         $this->sync_manager = new OpenWOOSyncManager($this->slug);

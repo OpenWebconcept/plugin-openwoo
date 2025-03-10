@@ -5,7 +5,7 @@ declare(strict_types=1);
 return [
     'woo_base' => [
         'id' => 'openwoo_metadata',
-        'title' => __('Data', OWO_LANGUAGE_DOMAIN),
+        'title' => __('Data', 'openwoo'),
         'object_types' => ['openwoo-item'],
         'context' => 'normal',
         'priority' => 'high',
@@ -13,7 +13,7 @@ return [
         'fields' => [
             'general' => [
                 [
-                    'name' => __('Kenmerk *', OWO_LANGUAGE_DOMAIN),
+                    'name' => __('Kenmerk *', 'openwoo'),
                     'id' => 'woo_Kenmerk',
                     'type' => 'text',
                     'attributes' => [
@@ -21,12 +21,12 @@ return [
                     ],
                 ],
                 [
-                    'name' => __('Samenvatting', OWO_LANGUAGE_DOMAIN),
+                    'name' => __('Samenvatting', 'openwoo'),
                     'id' => 'woo_Samenvatting',
                     'type' => 'textarea',
                 ],
                 [
-                    'name' => __('Onderwerp *', OWO_LANGUAGE_DOMAIN),
+                    'name' => __('Onderwerp *', 'openwoo'),
                     'id' => 'woo_Onderwerp',
                     'type' => 'text',
                     'attributes' => [
@@ -34,13 +34,13 @@ return [
                     ],
                 ],
                 [
-                    'name' => __('Ontvanger informatieverzoek', OWO_LANGUAGE_DOMAIN),
+                    'name' => __('Ontvanger informatieverzoek', 'openwoo'),
                     'id' => 'woo_Ontvanger_informatieverzoek',
                     'type' => 'text',
 
                 ],
                 [
-                    'name' => __('Termijnoverschrijding', OWO_LANGUAGE_DOMAIN),
+                    'name' => __('Termijnoverschrijding', 'openwoo'),
                     'id'=> 'woo_Termijnoverschrijding',
                     'type' => 'select',
                     'options' => [
@@ -50,7 +50,7 @@ return [
                     ],
                 ],
                 [
-                    'name' => __('Ontvangstdatum *', OWO_LANGUAGE_DOMAIN),
+                    'name' => __('Ontvangstdatum *', 'openwoo'),
                     'id' => 'woo_Ontvangstdatum',
                     'type' => 'text_date',
                     'date_format' => 'd-m-Y',
@@ -60,7 +60,7 @@ return [
                     ],
                 ],
                 [
-                    'name' => __('Besluitdatum *', OWO_LANGUAGE_DOMAIN),
+                    'name' => __('Besluitdatum *', 'openwoo'),
                     'id' => 'woo_Besluitdatum',
                     'type' => 'text_date',
                     'js_options' => [
@@ -78,7 +78,7 @@ return [
                     ],
                 ],
                 [
-                    'name' => __('Besluit *', OWO_LANGUAGE_DOMAIN),
+                    'name' => __('Besluit *', 'openwoo'),
                     'id' => 'woo_Besluit',
                     'type' => 'select',
                     'options' => [
@@ -93,7 +93,7 @@ return [
                     ],
                 ],
                 [
-                    'name' => __('Bijlage informatieverzoek', OWO_LANGUAGE_DOMAIN),
+                    'name' => __('Bijlage informatieverzoek', 'openwoo'),
                     'id' => 'woo_Bijlage_informatieverzoek',
                     'type' => 'file',
                     'options' => [
@@ -101,7 +101,7 @@ return [
                     ],
                 ],
                 [
-                    'name' => __('Bijlage inventarisatielijst', OWO_LANGUAGE_DOMAIN),
+                    'name' => __('Bijlage inventarisatielijst', 'openwoo'),
                     'id' => 'woo_Bijlage_inventarisatielijst',
                     'type' => 'file',
                     'options' => [
@@ -109,7 +109,7 @@ return [
                     ],
                 ],
                 [
-                    'name' => __('Bijlage besluit', OWO_LANGUAGE_DOMAIN),
+                    'name' => __('Bijlage besluit', 'openwoo'),
                     'id' => 'woo_Bijlage_besluit',
                     'type' => 'file',
                     'options' => [
@@ -117,50 +117,50 @@ return [
                     ],
                 ],
                 [
-                    'name' => __('URL informatieverzoek', OWO_LANGUAGE_DOMAIN),
+                    'name' => __('URL informatieverzoek', 'openwoo'),
                     'id' => 'woo_URL_informatieverzoek',
                     'type' => 'text_url',
                 ],
                 [
-                    'name' => __('URL inventarisatielijst', OWO_LANGUAGE_DOMAIN),
+                    'name' => __('URL inventarisatielijst', 'openwoo'),
                     'id' => 'woo_URL_inventarisatielijst',
                     'type' => 'text_url',
                 ],
                 [
-                    'name' => __('URL besluit', OWO_LANGUAGE_DOMAIN),
+                    'name' => __('URL besluit', 'openwoo'),
                     'id' => 'woo_URL_besluit',
                     'type' => 'text_url',
                 ],
                 [
-                    'name' => __('Postcodegebied', OWO_LANGUAGE_DOMAIN),
+                    'name' => __('Postcodegebied', 'openwoo'),
                     'id' => 'woo_Postcodegebied',
                     'type' => 'text',
                 ],
                 [
                     'id' => 'woo_Themas',
                     'type' => 'group',
-                    'before_group' => sprintf('<div class="cmb-row"><div class="cmb-th"><label>%s</label></div></div>', __('Thema\'s', OWO_LANGUAGE_DOMAIN)),
+                    'before_group' => sprintf('<div class="cmb-row"><div class="cmb-th"><label>%s</label></div></div>', __('Thema\'s', 'openwoo')),
                     'repeatable' => true,
                     'fields' => [
                         [
-                            'name' => __('Hoofdthema', OWO_LANGUAGE_DOMAIN),
+                            'name' => __('Hoofdthema', 'openwoo'),
                             'id' => 'woo_Hoofdthema',
                             'type' => 'text',
                         ],
                         [
-                            'name' => __('Subthema', OWO_LANGUAGE_DOMAIN),
+                            'name' => __('Subthema', 'openwoo'),
                             'id' => 'woo_Subthema',
                             'type' => 'text',
                         ],
                         [
-                            'name' => __('Aanvullend thema', OWO_LANGUAGE_DOMAIN),
+                            'name' => __('Aanvullend thema', 'openwoo'),
                             'id' => 'woo_Aanvullend_thema',
                             'type' => 'text',
                         ],
                     ]
                 ],
                 [
-                    'name' => __('Geografisch gebied', OWO_LANGUAGE_DOMAIN),
+                    'name' => __('Geografisch gebied', 'openwoo'),
                     'id' => 'woo_Geografisch_gebied',
                     'type' => 'text',
                 ],
@@ -168,21 +168,21 @@ return [
                     'id' => 'woo_Adres',
                     'type' => 'text',
                     'type' => 'group',
-                    'before_group' => sprintf('<div class="cmb-row"><div class="cmb-th"><label>%s</label></div></div>', __('Adres', OWO_LANGUAGE_DOMAIN)),
+                    'before_group' => sprintf('<div class="cmb-row"><div class="cmb-th"><label>%s</label></div></div>', __('Adres', 'openwoo')),
                     'repeatable' => false,
                     'fields' => [
                         [
-                            'name' => __('Straat + huisnummer', OWO_LANGUAGE_DOMAIN),
+                            'name' => __('Straat + huisnummer', 'openwoo'),
                             'id' => 'woo_Straat__huisnummer',
                             'type' => 'text',
                         ],
                         [
-                            'name' => __('Postcode', OWO_LANGUAGE_DOMAIN),
+                            'name' => __('Postcode', 'openwoo'),
                             'id' => 'woo_Postcode',
                             'type' => 'text',
                         ],
                         [
-                            'name' => __('Stad', OWO_LANGUAGE_DOMAIN),
+                            'name' => __('Stad', 'openwoo'),
                             'id' => 'woo_Stad',
                             'type' => 'text',
                         ],
@@ -191,16 +191,16 @@ return [
                 [
                     'id'   => 'woo_Geografische_positie',
                     'type' => 'group',
-                    'before_group' => sprintf('<div class="cmb-row"><div class="cmb-th"><label>%s</label></div></div>', __('Geografische positie', OWO_LANGUAGE_DOMAIN)),
+                    'before_group' => sprintf('<div class="cmb-row"><div class="cmb-th"><label>%s</label></div></div>', __('Geografische positie', 'openwoo')),
                     'repeatable' => false,
                     'fields' => [
                         [
-                            'name' => __('Longitude', OWO_LANGUAGE_DOMAIN),
+                            'name' => __('Longitude', 'openwoo'),
                             'id' => 'woo_Longitude',
                             'type' => 'text',
                         ],
                         [
-                            'name' => __('Latitude', OWO_LANGUAGE_DOMAIN),
+                            'name' => __('Latitude', 'openwoo'),
                             'id'   => 'woo_Lattitude',
                             'type' => 'text',
                         ],
@@ -209,16 +209,16 @@ return [
                 [
                     'id' => 'woo_COORDS',
                     'type' => 'group',
-                    'before_group' => sprintf('<div class="cmb-row"><div class="cmb-th"><label>%s</label></div></div>', __('COORDS', OWO_LANGUAGE_DOMAIN)),
+                    'before_group' => sprintf('<div class="cmb-row"><div class="cmb-th"><label>%s</label></div></div>', __('COORDS', 'openwoo')),
                     'repeatable' => false,
                     'fields' => [
                         [
-                            'name' => __('X', OWO_LANGUAGE_DOMAIN),
+                            'name' => __('X', 'openwoo'),
                             'id' => 'woo_X',
                             'type' => 'text',
                         ],
                         [
-                            'name' => __('Y', OWO_LANGUAGE_DOMAIN),
+                            'name' => __('Y', 'openwoo'),
                             'id' => 'woo_Y',
                             'type' => 'text',
                         ],
@@ -227,11 +227,11 @@ return [
                 [
                     'id' => 'woo_Bijlagen',
                     'type' => 'group',
-                    'before_group' => sprintf('<div class="cmb-row"><div class="cmb-th"><label>%s</label></div></div>', __('Bijlagen', OWO_LANGUAGE_DOMAIN)),
+                    'before_group' => sprintf('<div class="cmb-row"><div class="cmb-th"><label>%s</label></div></div>', __('Bijlagen', 'openwoo')),
                     'repeatable' => true,
                     'fields' => [
                         [
-                            'name' => __('Type Bijlage', OWO_LANGUAGE_DOMAIN),
+                            'name' => __('Type Bijlage', 'openwoo'),
                             'id' => 'woo_Type_Bijlage',
                             'type' => 'select',
                             'options' => [
@@ -241,7 +241,7 @@ return [
                             ],
                         ],
                         [
-                            'name' => __('Status Bijlage', OWO_LANGUAGE_DOMAIN),
+                            'name' => __('Status Bijlage', 'openwoo'),
                             'id' => 'woo_Status_Bijlage',
                             'type' => 'select',
                             'options' => [
@@ -252,7 +252,7 @@ return [
                             ],
                         ],
                         [
-                            'name' => __('Tijdstip laatste wijziging bijlage', OWO_LANGUAGE_DOMAIN),
+                            'name' => __('Tijdstip laatste wijziging bijlage', 'openwoo'),
                             'id' => 'woo_Tijdstip_laatste_wijziging_bijlage',
                             'type' => 'datetime',
                             'timestamp' => true,
@@ -267,17 +267,17 @@ return [
                             'inline' => false,
                         ],
                         [
-                            'name' => __('Titel Bijlage', OWO_LANGUAGE_DOMAIN),
+                            'name' => __('Titel Bijlage', 'openwoo'),
                             'id' => 'woo_Titel_Bijlage',
                             'type' => 'text',
                         ],
                         [
-                            'name' => __('URL Bijlage', OWO_LANGUAGE_DOMAIN),
+                            'name' => __('URL Bijlage', 'openwoo'),
                             'id' => 'woo_URL_Bijlage',
                             'type' => 'text_url',
                         ],
                         [
-                            'name' => __('Bijlage', OWO_LANGUAGE_DOMAIN),
+                            'name' => __('Bijlage', 'openwoo'),
                             'id' => 'woo_Bijlage',
                             'type' => 'file',
                             'options' => [

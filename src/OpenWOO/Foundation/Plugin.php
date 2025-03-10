@@ -11,47 +11,17 @@ namespace Yard\OpenWOO\Foundation;
  */
 class Plugin
 {
-    /**
-     * Name of the plugin.
-     *
-     * @var string
-     */
-    const NAME = \OWO_SLUG;
+    public const NAME = \OWO_SLUG;
+    public const VERSION = \OWO_VERSION;
 
-    /**
-     * Version of the plugin.
-     * Used for setting versions of enqueue scripts and styles.
-     *
-     * @var string VERSION
-     */
-    const VERSION = \OWO_VERSION;
-
-    /**
-     * Path to the root of the plugin.
-     */
     protected string $rootPath;
-
-    /**
-     * Instance of the configuration repository.
-
-     */
     public Config $config;
-
-    /**
-     * Instance of the Hook loader.
-     */
     public Loader $loader;
 
-    /**
-     * Constructor of the BasePlugin
-     */
     public function __construct(string $rootPath)
     {
         $this->rootPath = $rootPath;
-        load_plugin_textdomain($this->getName(), false, $this->getName() . '/languages/');
-
         $this->loader = new Loader;
-
         $this->config = new Config($this->rootPath . '/config');
         $this->config->setProtectedNodes(['core']);
     }
@@ -63,6 +33,9 @@ class Plugin
      */
     public function boot(): bool
     {
+		$this->loadTextDomain();
+		$this->config->boot();
+
         $dependencyChecker = new DependencyChecker(
             new DismissableAdminNotice,
             $this->config->get('dependencies.required'),
@@ -80,27 +53,35 @@ class Plugin
             $dependencyChecker->notifySuggestions();
         }
 
-        // Set up service providers
-        $this->callServiceProviders('register');
+        $this->registerProviders();
 
-        if (\is_admin()) {
-            $this->callServiceProviders('register', 'admin');
-            $this->callServiceProviders('boot', 'admin');
-        }
-
-        if ('cli' === php_sapi_name()) {
-            $this->callServiceProviders('register', 'cli');
-            $this->callServiceProviders('boot', 'cli');
-        }
-
-        $this->callServiceProviders('boot');
-
-        // Register the Hook loader.
         $this->loader->addAction('init', $this, 'filterPlugin', 4);
         $this->loader->register();
 
         return true;
     }
+
+	public function loadTextDomain(): void
+	{
+		load_plugin_textdomain($this->getName(), false, $this->getName() . '/languages/');
+	}
+
+	protected function registerProviders(): void
+	{
+		$this->callServiceProviders('register');
+
+		if (\is_admin()) {
+			$this->callServiceProviders('register', 'admin');
+			$this->callServiceProviders('boot', 'admin');
+		}
+
+		if ('cli' === php_sapi_name()) {
+			$this->callServiceProviders('register', 'cli');
+			$this->callServiceProviders('boot', 'cli');
+		}
+
+		$this->callServiceProviders('boot');
+	}
 
     /**
      * Allows for hooking into the plugin name.

@@ -1,286 +1,325 @@
-# Loco Gettext template
-#, fuzzy
+# Copyright (C) 2025 Yard | Digital Agency
+# This file is distributed under the EUPL-1.2.
 msgid ""
 msgstr ""
-"Project-Id-Version: Yard OpenWOO\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-26 09:42+0100\n"
-"POT-Revision-Date: Fri Nov 27 2015 13:26:26 GMT+0100 (W. Europe Standard Time)\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: \n"
-"Language-Team: Yard | Digital Agency <inf@yard.nl>\n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION\n"
+"Project-Id-Version: Yard | OpenWOO 4.2.7\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/openwoo\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-Basepath: ..\n"
-"X-Poedit-KeywordsList: _:1;gettext:1;dgettext:2;ngettext:1,2;dngettext:2,3;__:1;"
-"_e:1;_n:1,2;_n_noop:1,2;_nc:1,2;__ngettext:1,2;__ngettext_noop:1,2;_x:1,2c;"
-"_ex:1,2c;_nx:1,2,4c;_nx_noop:1,2,3c;_n_js:1,2;_nx_js:1,2,3c;esc_attr__:1;"
-"esc_html__:1;esc_attr_e:1;esc_html_e:1;esc_attr_x:1,2c;esc_html_x:1,2c\n"
-"X-Generator: Poedit 2.3\n"
-"X-Poedit-SearchPath-0: src\n"
-"X-Poedit-SearchPath-1: config\n"
-"X-Poedit-SearchPathExcluded-0: assets\n"
-"X-Poedit-SearchPathExcluded-1: node_modules\n"
-"X-Poedit-SearchPathExcluded-2: vendor\n"
+"POT-Creation-Date: 2025-03-10T15:53:53+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.10.0\n"
+"X-Domain: openwoo\n"
 
-#: config/openwoo/metaboxes.php:6
+#. Plugin Name of the plugin
+#: openwoo.php
+msgid "Yard | OpenWOO"
+msgstr ""
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+#: openwoo.php
+msgid "https://www.yard.nl/"
+msgstr ""
+
+#. Description of the plugin
+#: openwoo.php
+msgid "Voegt de OpenWOO functionaliteit toe aan de website."
+msgstr ""
+
+#. Author of the plugin
+#: openwoo.php
+msgid "Yard | Digital Agency"
+msgstr ""
+
+#: config/metaboxes.php:8
 msgid "Data"
 msgstr ""
 
-#: config/openwoo/metaboxes.php:50
-msgid "ID"
+#: config/metaboxes.php:16
+msgid "Kenmerk *"
 msgstr ""
 
-#: config/openwoo/metaboxes.php:55
-msgid "woo_Titel"
+#: config/metaboxes.php:24
+msgid "Samenvatting"
 msgstr ""
 
-#: config/openwoo/metaboxes.php:60
-msgid "Wooverzoek informatie"
+#: config/metaboxes.php:29
+msgid "Onderwerp *"
 msgstr ""
 
-#: config/openwoo/metaboxes.php:65
-msgid "Status"
+#: config/metaboxes.php:37
+msgid "Ontvanger informatieverzoek"
 msgstr ""
 
-#: config/openwoo/metaboxes.php:76
-msgid "Tijdstip laatste wijziging"
-msgstr ""
-
-#: config/openwoo/metaboxes.php:93
-msgid "Volgnummer"
-msgstr ""
-
-#: config/openwoo/metaboxes.php:98
-msgid "Behandelend_bestuursorgaan"
-msgstr ""
-
-#: config/openwoo/metaboxes.php:103
-msgid "Verzoeker"
-msgstr ""
-
-#: config/openwoo/metaboxes.php:114
-msgid "Ontvanger_informatieverzoek"
-msgstr ""
-
-#: config/openwoo/metaboxes.php:119
+#: config/metaboxes.php:43
 msgid "Termijnoverschrijding"
 msgstr ""
 
-#: config/openwoo/metaboxes.php:129
-msgid "Behandelstatus"
+#: config/metaboxes.php:53
+msgid "Ontvangstdatum *"
 msgstr ""
 
-#: config/openwoo/metaboxes.php:140
-msgid "Ontvangstdatum"
+#: config/metaboxes.php:63
+msgid "Besluitdatum *"
 msgstr ""
 
-#: config/openwoo/metaboxes.php:154
-msgid "Besluitdatum"
+#: config/metaboxes.php:81
+msgid "Besluit *"
 msgstr ""
 
-#: config/openwoo/metaboxes.php:168
-msgid "Besluit"
+#: config/metaboxes.php:96
+msgid "Bijlage informatieverzoek"
 msgstr ""
 
-#: config/openwoo/metaboxes.php:180
-msgid "URL_informatieverzoek"
+#: config/metaboxes.php:104
+msgid "Bijlage inventarisatielijst"
 msgstr ""
 
-#: config/openwoo/metaboxes.php:185
-msgid "URL_inventarisatielijst"
+#: config/metaboxes.php:112
+msgid "Bijlage besluit"
 msgstr ""
 
-#: config/openwoo/metaboxes.php:190
-msgid "URL_besluit"
+#: config/metaboxes.php:120
+msgid "URL informatieverzoek"
 msgstr ""
 
-#: config/openwoo/metaboxes.php:195
+#: config/metaboxes.php:125
+msgid "URL inventarisatielijst"
+msgstr ""
+
+#: config/metaboxes.php:130
+msgid "URL besluit"
+msgstr ""
+
+#: config/metaboxes.php:135
 msgid "Postcodegebied"
 msgstr ""
 
-#: config/openwoo/metaboxes.php:200
-msgid "BAG_ID"
+#: config/metaboxes.php:142
+msgid "Thema's"
 msgstr ""
 
-#: config/openwoo/metaboxes.php:205
-msgid "BGT_ID"
-msgstr ""
-
-#: config/openwoo/metaboxes.php:210
-msgid "Themas"
-msgstr ""
-
-#: config/openwoo/metaboxes.php:216
+#: config/metaboxes.php:146
 msgid "Hoofdthema"
 msgstr ""
 
-#: config/openwoo/metaboxes.php:226
+#: config/metaboxes.php:151
 msgid "Subthema"
 msgstr ""
 
-#: config/openwoo/metaboxes.php:235
-msgid "Aanvullend_thema"
+#: config/metaboxes.php:156
+msgid "Aanvullend thema"
 msgstr ""
 
-#: config/openwoo/metaboxes.php:246
-msgid "Geografisch_gebied"
+#: config/metaboxes.php:163
+msgid "Geografisch gebied"
 msgstr ""
 
-#: config/openwoo/metaboxes.php:251
-msgid "Geografische_positie"
+#: config/metaboxes.php:171
+msgid "Adres"
 msgstr ""
 
-#: config/openwoo/metaboxes.php:256
+#: config/metaboxes.php:175
+msgid "Straat + huisnummer"
+msgstr ""
+
+#: config/metaboxes.php:180
+msgid "Postcode"
+msgstr ""
+
+#: config/metaboxes.php:185
+msgid "Stad"
+msgstr ""
+
+#: config/metaboxes.php:194
+msgid "Geografische positie"
+msgstr ""
+
+#: config/metaboxes.php:198
 msgid "Longitude"
 msgstr ""
 
-#: config/openwoo/metaboxes.php:261
+#: config/metaboxes.php:203
 msgid "Latitude"
 msgstr ""
 
-#: config/openwoo/metaboxes.php:268
+#: config/metaboxes.php:212
 msgid "COORDS"
 msgstr ""
 
-#: config/openwoo/metaboxes.php:273
+#: config/metaboxes.php:216
 msgid "X"
 msgstr ""
 
-#: config/openwoo/metaboxes.php:278
+#: config/metaboxes.php:221
 msgid "Y"
 msgstr ""
 
-#: config/openwoo/metaboxes.php:285
+#: config/metaboxes.php:230
 msgid "Bijlagen"
 msgstr ""
 
-#: config/openwoo/metaboxes.php:291
-msgid "Type_Bijlage"
+#: config/metaboxes.php:234
+msgid "Type Bijlage"
 msgstr ""
 
-#: config/openwoo/metaboxes.php:301
-msgid "Status_Bijlage"
+#: config/metaboxes.php:244
+msgid "Status Bijlage"
 msgstr ""
 
-#: config/openwoo/metaboxes.php:312
-msgid "Tijdstip_laatste_wijziging_bijlage"
+#: config/metaboxes.php:255
+msgid "Tijdstip laatste wijziging bijlage"
 msgstr ""
 
-#: config/openwoo/metaboxes.php:327
-msgid "Titel_Bijlage"
+#: config/metaboxes.php:270
+msgid "Titel Bijlage"
 msgstr ""
 
-#: config/openwoo/metaboxes.php:332
-msgid "URL_Bijlage"
+#: config/metaboxes.php:275
+msgid "URL Bijlage"
 msgstr ""
 
-#: src/Base/Foundation/DependencyChecker.php:72
-msgid "The following plugins are required to use the OpenWOO:"
+#: config/metaboxes.php:280
+msgid "Bijlage"
 msgstr ""
 
-#: src/Base/Foundation/DependencyChecker.php:112
-msgid "Class does not exist"
+#: config/settings_pages.php:6
+msgid "OpenWOO instellingen"
 msgstr ""
 
-#: src/Base/Foundation/DependencyChecker.php:132
-msgid "Inactive"
+#: config/settings_pages.php:10
+msgid "Algemeen"
 msgstr ""
 
-#: src/Base/Foundation/DependencyChecker.php:140
-msgid "Minimal version:"
+#: config/settings_pages.php:15
+msgid "Fileserver"
 msgstr ""
 
-#: src/Base/RestAPI/ItemFields/ConnectedField.php:48
-#: src/Base/RestAPI/ItemFields/ConnectedThemeItemField.php:48
-#, php-format
-msgid "Connection type \"%s\" does not exist"
+#: config/settings_pages.php:16
+msgid "Een eigen implementatie in een plug-in of thema is vereist voor het gebruik van een fileserver, deze plug-in biedt deze instellingen pagina aan waarmee je instellingen kunt gebruiken op elke gewenste plek."
 msgstr ""
 
-#: config/taxonomies.php:12
-msgid "Types"
+#: config/settings_pages.php:21
+msgid "Fileserver URL"
+msgstr ""
+
+#: config/settings_pages.php:22
+msgid "URL met http(s)://"
 msgstr ""
 
 #: config/taxonomies.php:13
-msgid "Type"
+msgid "Typen"
 msgstr ""
 
 #: config/taxonomies.php:14
-msgid "Search types"
+msgid "Type"
 msgstr ""
 
 #: config/taxonomies.php:15
-msgid "All types"
+msgid "Zoek typen"
 msgstr ""
 
 #: config/taxonomies.php:16
-msgid "Edit type"
+msgid "Alle typen"
 msgstr ""
 
 #: config/taxonomies.php:17
-msgid "View type"
+msgid "Type bewerken"
 msgstr ""
 
 #: config/taxonomies.php:18
-msgid "Update type"
+msgid "Type bekijken"
 msgstr ""
 
 #: config/taxonomies.php:19
-msgid "Add type"
+msgid "Type bijwerken"
 msgstr ""
 
 #: config/taxonomies.php:20
-msgid "New type name"
+msgid "Type toevoegen"
 msgstr ""
 
 #: config/taxonomies.php:21
-msgid "No types found"
+msgid "Nieuw type naam"
 msgstr ""
 
-#: config/taxonomies.php:33
-#: config/taxonomies.php:34
-msgid "Show on"
+#: config/taxonomies.php:22
+msgid "Geen typen gevonden"
 msgstr ""
 
 #: config/taxonomies.php:35
-msgid "Search show on"
-msgstr ""
-
 #: config/taxonomies.php:36
-msgid "All show on"
+msgid "Tonen op"
 msgstr ""
 
 #: config/taxonomies.php:37
-msgid "Edit show on"
+msgid "Zoek tonen op"
 msgstr ""
 
 #: config/taxonomies.php:38
-msgid "View show on"
+msgid "Alle tonen op"
 msgstr ""
 
 #: config/taxonomies.php:39
-msgid "Update show on"
+msgid "Tonen op bewerken"
 msgstr ""
 
 #: config/taxonomies.php:40
-msgid "Add show on"
+msgid "Tonen op bekijken"
 msgstr ""
 
 #: config/taxonomies.php:41
-msgid "New show on"
+msgid "Tonen op bijwerken"
 msgstr ""
 
 #: config/taxonomies.php:42
-msgid "No show on found"
+msgid "Tonen op toevoegen"
+msgstr ""
+
+#: config/taxonomies.php:43
+msgid "Nieuw tonen op"
+msgstr ""
+
+#: config/taxonomies.php:44
+msgid "Geen tonen op gevonden"
+msgstr ""
+
+#: src/OpenWOO/ElasticPress/OpenWOOIndexable.php:25
+msgid "OpenWOO items"
+msgstr ""
+
+#: src/OpenWOO/ElasticPress/OpenWOOIndexable.php:26
+msgid "OpenWOO item"
+msgstr ""
+
+#: src/OpenWOO/Foundation/DependencyChecker.php:81
+msgid "The following plugins are required to use the OpenWOO:"
+msgstr ""
+
+#: src/OpenWOO/Foundation/DependencyChecker.php:109
+msgid "The following plugins or libraries are suggested and supported to be used with the OpenWOO:"
+msgstr ""
+
+#: src/OpenWOO/Foundation/DependencyChecker.php:150
+msgid "Klasse bestaat niet"
+msgstr ""
+
+#: src/OpenWOO/Foundation/DependencyChecker.php:170
+msgid "Inactief"
+msgstr ""
+
+#: src/OpenWOO/Foundation/DependencyChecker.php:178
+msgid "Minimale versie:"
 msgstr ""
 
 #: src/OpenWOO/Taxonomy/TaxonomyController.php:17
-msgid "Additional explanation"
+msgid "Additionele uitleg"
 msgstr ""
 
 #: src/OpenWOO/Taxonomy/TaxonomyController.php:18
-msgid "The slug value must be the ID of the blog you want to add as term. The ID is used for displaying the correct openwoo-items on every blog."
+msgid "De waarde van de slug moet het ID zijn van de blog die je wilt toevoegen als term. Het ID wordt gebruikt om de juiste openwoo-items weer te geven op alle blogs."
 msgstr ""
