@@ -23,7 +23,6 @@ define('WP_PLUGIN_DIR', __DIR__);
 define('WP_DEBUG', false);
 define('OWO_FILE', __FILE__);
 define('OWO_SLUG', basename(__FILE__, '.php'));
-define('OWO_LANGUAGE_DOMAIN', OWO_SLUG);
 define('OWO_DIR', basename(__DIR__));
 define('OWO_ROOT_PATH', __DIR__);
 define('OWO_VERSION', '1.0.13');
@@ -34,7 +33,7 @@ define('OWO_VERSION', '1.0.13');
 \WP_Mock::setUsePatchwork(true);
 \WP_Mock::bootstrap();
 
-$GLOBALS[OWO_LANGUAGE_DOMAIN] = [
+$GLOBALS['openwoo'] = [
     'active_plugins' => [OWO_DIR . '/' . OWO_FILE],
 ];
 

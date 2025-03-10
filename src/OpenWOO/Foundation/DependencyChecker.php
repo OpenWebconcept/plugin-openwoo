@@ -80,7 +80,7 @@ class DependencyChecker
         add_action('admin_notices', function () {
             $list = '<p>' . __(
                 'The following plugins are required to use the OpenWOO:',
-                OWO_LANGUAGE_DOMAIN
+                'openwoo'
             ) . '</p><ol>';
 
             foreach ($this->failed as $dependency) {
@@ -108,7 +108,7 @@ class DependencyChecker
             }
             $list = '<p>' . __(
                 'The following plugins or libraries are suggested and supported to be used with the OpenWOO:',
-                OWO_LANGUAGE_DOMAIN
+                'openwoo'
             ) . '</p><ol>';
 
             foreach ($this->suggestions as $suggestion) {
@@ -147,7 +147,7 @@ class DependencyChecker
     private function checkClass(array $dependency)
     {
         if (! class_exists($dependency['name'])) {
-            $this->markFailed($dependency, __('Class does not exist', OWO_LANGUAGE_DOMAIN));
+            $this->markFailed($dependency, __('Klasse bestaat niet', 'openwoo'));
 
             return;
         }
@@ -167,7 +167,7 @@ class DependencyChecker
         }
 
         if (! $this->checkPluginActive($dependency)) {
-            $this->markFailed($dependency, __('Inactive', OWO_LANGUAGE_DOMAIN));
+            $this->markFailed($dependency, __('Inactief', 'openwoo'));
 
             return;
         }
@@ -175,7 +175,7 @@ class DependencyChecker
         // If there is a version lock set on the dependency...
         if (isset($dependency['version'])) {
             if (! $this->checkVersion($dependency)) {
-                $this->markFailed($dependency, __('Minimal version:', OWO_LANGUAGE_DOMAIN) . ' <b>' . $dependency['version'] . '</b>');
+                $this->markFailed($dependency, __('Minimale versie:', 'openwoo') . ' <b>' . $dependency['version'] . '</b>');
             }
         }
     }

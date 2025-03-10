@@ -18,12 +18,12 @@ softwareType: 'softwareAddon'
 description:
     en:
         genericName: 'Yard | OpenWOO'
-        shortDescription: 'Through this plugin, OpenWOO requests can be managed'
-        longDescription: 'Through this plugin, OpenWOO requests can be managed'
+        shortDescription: 'Adds OpenWOO implementation'
+        longDescription: 'Adds OpenWOO implementation'
     nl:
         genericName: 'Yard | OpenWOO'
-        shortDescription: 'Middels deze plugin kunnen OpenWOO verzoeken beheerd worden'
-        longDescription: 'Middels deze plugin kunnen OpenWOO verzoeken beheerd worden'
+        shortDescription: 'Voegt de OpenWOO functionaliteit toe aan de website.'
+        longDescription: 'Voegt de OpenWOO functionaliteit toe aan de website.'
 
 legal:
     license: 'EUPL-1.2'

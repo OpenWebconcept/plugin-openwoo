@@ -38,6 +38,13 @@ class Config
     {
         $this->items = $items;
         $this->path = $path;
+    }
+
+	/**
+     * Boot up the configuration repository.
+     */
+    public function boot(): void
+    {
         $this->scanDirectory($this->getPath());
     }
 

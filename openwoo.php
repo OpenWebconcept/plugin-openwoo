@@ -5,7 +5,7 @@ declare(strict_types=1);
 /**
  * Plugin Name:       Yard | OpenWOO
  * Plugin URI:        https://www.yard.nl/
- * Description:       Adds OpenWOO implementation
+ * Description:       Voegt de OpenWOO functionaliteit toe aan de website.
  * Version:           4.2.7
  * Author:            Yard | Digital Agency
  * Author URI:        https://www.yard.nl/
@@ -27,7 +27,6 @@ if (!defined('WPINC')) {
 
 define('OWO_FILE', __FILE__);
 define('OWO_SLUG', basename(__FILE__, '.php'));
-define('OWO_LANGUAGE_DOMAIN', OWO_SLUG);
 define('OWO_DIR', basename(__DIR__));
 define('OWO_ROOT_PATH', __DIR__);
 define('OWO_VERSION', '4.2.7');
@@ -50,5 +49,10 @@ if (file_exists(__DIR__ . '/vendor/autoload.php')) {
  * and wp_loaded action hooks.
  */
 add_action('plugins_loaded', function () {
-    $plugin = (new Plugin(__DIR__))->boot();
+    $plugin = (new Plugin(__DIR__));
+
+	add_action('after_setup_theme', function() use ($plugin) {
+		$plugin->boot();
+		do_action('yard/openwoo/plugin', $plugin);
+	});
 }, 10);
