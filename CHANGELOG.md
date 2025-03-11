@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## Version 4.2.8
+
+- Fix: translations just in time error
+
 ## Version 4.2.7
 
 - Feat: add new fields with double negation for upload status in URLs ([#16](https://github.com/OpenWebconcept/plugin-openwoo/pull/16/files)) @rmpel
