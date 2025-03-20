@@ -40,6 +40,10 @@ class DependencyChecker
                     $this->checkPlugin($dependency);
 
                     break;
+				case 'function':
+
+					$this->checkFunction($dependency);
+					break;
             }
         }
 
@@ -179,6 +183,16 @@ class DependencyChecker
             }
         }
     }
+
+	/**
+	 * Checks if required function exists.
+	 */
+	private function checkFunction(array $dependency): void
+	{
+		if (! function_exists($dependency['name'])) {
+			$this->markFailed($dependency, __('Function does not exist:', 'openwoo') . ' <b>' . $dependency['name'] . '</b>');
+		}
+	}
 
     protected function checkPluginActive(array $dependency): bool
     {

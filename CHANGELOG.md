@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## Version 4.2.9
+
+- Fix: extended cpt dependency check
+
 ## Version 4.2.8
 
 - Fix: translations just in time error

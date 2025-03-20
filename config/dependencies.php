@@ -21,11 +21,11 @@ return [
             'version' => '2.10.1',
             'file'    => 'cmb2/init.php',
         ],
-        [
-            'type'  => 'class',
-            'label' => '<a href="https://github.com/johnbillion/extended-cpts" target="_blank">Extended CPT library</a>',
-            'name'  => 'Extended_CPT',
-        ]
+		[
+			'type'  => 'function',
+			'label' => '<a href="https://github.com/johnbillion/extended-cpts" target="_blank">Extended CPT library</a>',
+			'name'  => 'register_extended_post_type'
+		]
     ],
     'suggested' => [
         [
