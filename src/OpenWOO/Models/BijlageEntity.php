@@ -42,7 +42,7 @@ class BijlageEntity extends AbstractEntity
         // First try by using the 'woo_Bijlage_id' field.
         $url = \wp_get_attachment_url($this->getAttachmentObjectID()) ?: '';
 
-        if ($url !== false) {
+        if (is_string($url) && 0 < strlen($url)) {
             return $url;
         }
 
