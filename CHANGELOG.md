@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## Version 4.2.11
+
+- Hotfix: wrong type check
+
 ## Version 4.2.10
 
 - Fix: wrong type check

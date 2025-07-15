@@ -29,7 +29,7 @@ define('OWO_FILE', __FILE__);
 define('OWO_SLUG', basename(__FILE__, '.php'));
 define('OWO_DIR', basename(__DIR__));
 define('OWO_ROOT_PATH', __DIR__);
-define('OWO_VERSION', '4.2.10');
+define('OWO_VERSION', '4.2.11');
 
 /**
  * Manual loaded file: the autoloader.
