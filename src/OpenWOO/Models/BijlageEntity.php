@@ -32,36 +32,82 @@ class BijlageEntity extends AbstractEntity
     }
 
     /**
-     * Tries different ways to retrieve the URL in the following order:
+     * Retrieve the attachment URL by trying several meta fields in the following order:
      * - 'woo_Bijlage_id' (is set when the post is saved in the editor)
      * - 'woo_Bijlage' (other applications might use the 'woo_Bijlage' field to insert the URL to the attachment directly)
      * - 'woo_URL_Bijlage' (is used when there is no file uploaded directly in to Wordpress)
      */
     protected function getAttachmentURL(): string
     {
-        // First try by using the 'woo_Bijlage_id' field.
-        $url = \wp_get_attachment_url($this->getAttachmentObjectID()) ?: '';
-
-        if (is_string($url) && 0 < strlen($url)) {
+        // 1. Try 'woo_Bijlage_id'
+        if ($url = $this->getUrlFromAttachmentId()) {
             return $url;
         }
 
-        // Secondly try by using the 'woo_Bijlage' field.
+        // 2. Try 'woo_Bijlage'
+        if ($url = $this->getUrlFromBijlage()) {
+            return $url;
+        }
+
+        // 3. Try 'woo_URL_Bijlage'
+        return $this->getUrlFromUrlBijlage();
+    }
+
+    /**
+     * Try to get URL from 'woo_Bijlage_id'.
+     */
+    private function getUrlFromAttachmentId(): ?string
+    {
+        $url = wp_get_attachment_url($this->getAttachmentObjectID()) ?: '';
+
+        return $this->isValidUrl($url) ? $url : null;
+    }
+
+    /**
+     * Try to get URL from 'woo_Bijlage'.
+     * - If it's numeric, treat it as attachment ID.
+     * - If it's a string (non-numeric), treat it as URL.
+     */
+    private function getUrlFromBijlage(): ?string
+    {
         $objectID = $this->data[self::PREFIX . 'Bijlage'] ?? '';
 
-        if (is_array($objectID)) {
-            $objectID = $objectID[0];
+        // Handle array values: take first element.
+        if (is_array($objectID) && isset($objectID[0])) {
+            $objectID = (string) ($objectID[0] ?? '');
+        } else {
+            $objectID = (string) $objectID;
         }
 
-        if (empty($objectID)) {
-            return $this->data[self::PREFIX . 'URL_Bijlage'] ?? ''; // Still empty? Try 'woo_URL_Bijlage' field.
+        if (empty($objectID) || ! is_string($objectID)) {
+            return null;
         }
 
-        if (! is_numeric($objectID)) { // If it is not an numeric value than it is an URL already.
+        // If it's a non-numeric string, treat it as URL.
+        if (! is_numeric($objectID)) {
             return $objectID;
         }
 
-        return \wp_get_attachment_url($objectID) ?: '';
+        // Is numeric, try to get attachment URL.
+        $url = wp_get_attachment_url((int) $objectID) ?: '';
+
+        return $this->isValidUrl($url) ? $url : null;
+    }
+
+    /**
+     * Try to get URL from 'woo_URL_Bijlage'.
+     */
+    private function getUrlFromUrlBijlage(): string
+    {
+        return (string) ($this->data[self::PREFIX . 'URL_Bijlage'] ?? '');
+    }
+
+    /**
+     * Validate if URL is a non-empty string.
+     */
+    private function isValidUrl(?string $url): bool
+    {
+        return is_string($url) && strlen($url) > 0;
     }
 
     protected function getFileSize(): int
