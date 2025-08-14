@@ -1,6 +1,6 @@
 <?php
 
-namespace Yard\OpenWoo\Traits;
+namespace Yard\OpenWOO\Traits;
 
 trait GravityFormsUploadToMediaLibrary
 {

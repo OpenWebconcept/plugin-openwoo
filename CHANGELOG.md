@@ -4,6 +4,10 @@
 
 - Fix: retrieving attachment URL in BijlageEntity class
 
+## Version 4.2.12
+
+- Hotfix: namespace typo
+
 ## Version 4.2.11
 
 - Hotfix: wrong type check
