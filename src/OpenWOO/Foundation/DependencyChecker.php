@@ -1,4 +1,5 @@
-<?php declare(strict_types=1);
+<?php
+declare(strict_types=1);
 
 namespace Yard\OpenWOO\Foundation;
 
@@ -12,9 +13,9 @@ class DependencyChecker
     /**
      * Determine which plugins need to be present.
      *
-     * @param DismissableAdminNotice $dismissableAdminNotice
-     * @param array $dependencies
-     * @param array $suggestions
+     * @param  DismissableAdminNotice  $dismissableAdminNotice
+     * @param  array  $dependencies
+     * @param  array  $suggestions
      */
     public function __construct(DismissableAdminNotice $dismissableAdminNotice, array $dependencies, array $suggestions = [])
     {
@@ -40,10 +41,10 @@ class DependencyChecker
                     $this->checkPlugin($dependency);
 
                     break;
-				case 'function':
+                case 'function':
 
-					$this->checkFunction($dependency);
-					break;
+                    $this->checkFunction($dependency);
+                    break;
             }
         }
 
@@ -70,7 +71,7 @@ class DependencyChecker
             }
         }
 
-        return 0 < count($this->suggestions);
+        return 0 < count($this->failed);
     }
 
     /**
@@ -107,7 +108,7 @@ class DependencyChecker
     public function notifySuggestions(): void
     {
         add_action('admin_notices', function () {
-            if (! $this->dismissableAdminNotice->isAdminNoticeActive('dependency-suggestions-forever')) {
+            if (!$this->dismissableAdminNotice->isAdminNoticeActive('dependency-suggestions-forever')) {
                 return;
             }
             $list = '<p>' . __(
@@ -116,7 +117,7 @@ class DependencyChecker
             ) . '</p><ol>';
 
             foreach ($this->suggestions as $suggestion) {
-                $info = (isset($suggestion['message']) and (! empty($suggestion['message']))) ? ' (' . $suggestion['message'] . ')' : '';
+                $info = (isset($suggestion['message']) and (!empty($suggestion['message']))) ? ' (' . $suggestion['message'] . ')' : '';
                 $list .= sprintf('<li>%s%s</li>', $suggestion['label'], $info);
             }
 
@@ -129,8 +130,8 @@ class DependencyChecker
     /**
      * Marks a dependency as failed.
      *
-     * @param array  $dependency
-     * @param string $defaultMessage
+     * @param  array  $dependency
+     * @param  string  $defaultMessage
      *
      * @return void
      */
@@ -144,13 +145,13 @@ class DependencyChecker
     /**
      * Checks if required class exists.
      *
-     * @param array $dependency
+     * @param  array  $dependency
      *
      * @return void
      */
     private function checkClass(array $dependency)
     {
-        if (! class_exists($dependency['name'])) {
+        if (!class_exists($dependency['name'])) {
             $this->markFailed($dependency, __('Klasse bestaat niet', 'openwoo'));
 
             return;
@@ -160,17 +161,17 @@ class DependencyChecker
     /**
      * Check if a plugin is enabled and has the correct version.
      *
-     * @param array $dependency
+     * @param  array  $dependency
      *
      * @return void
      */
     private function checkPlugin(array $dependency): void
     {
-        if (! function_exists('is_plugin_active')) {
+        if (!function_exists('is_plugin_active')) {
             include_once ABSPATH . 'wp-admin/includes/plugin.php';
         }
 
-        if (! $this->checkPluginActive($dependency)) {
+        if (!$this->checkPluginActive($dependency)) {
             $this->markFailed($dependency, __('Inactief', 'openwoo'));
 
             return;
@@ -178,26 +179,26 @@ class DependencyChecker
 
         // If there is a version lock set on the dependency...
         if (isset($dependency['version'])) {
-            if (! $this->checkVersion($dependency)) {
+            if (!$this->checkVersion($dependency)) {
                 $this->markFailed($dependency, __('Minimale versie:', 'openwoo') . ' <b>' . $dependency['version'] . '</b>');
             }
         }
     }
 
-	/**
-	 * Checks if required function exists.
-	 */
-	private function checkFunction(array $dependency): void
-	{
-		if (! function_exists($dependency['name'])) {
-			$this->markFailed($dependency, __('Function does not exist:', 'openwoo') . ' <b>' . $dependency['name'] . '</b>');
-		}
-	}
+    /**
+     * Checks if required function exists.
+     */
+    private function checkFunction(array $dependency): void
+    {
+        if (!function_exists($dependency['name'])) {
+            $this->markFailed($dependency, __('Function does not exist:', 'openwoo') . ' <b>' . $dependency['name'] . '</b>');
+        }
+    }
 
     protected function checkPluginActive(array $dependency): bool
     {
         $files = $dependency['file'];
-        if (! is_array($files)) {
+        if (!is_array($files)) {
             $files = [$files];
         }
         $results = array_map(function ($plugin) {
@@ -212,19 +213,19 @@ class DependencyChecker
     /**
      * Checks the installed version of the plugin.
      *
-     * @param array $dependency
+     * @param  array  $dependency
      *
      * @return bool
      */
     private function checkVersion(array $dependency): bool
     {
         $files = $dependency['file'];
-        if (! is_array($files)) {
+        if (!is_array($files)) {
             $files = [$files];
         }
         $results = array_map(function ($file) use ($dependency) {
             $file = WP_PLUGIN_DIR . '/' . $file;
-            if (! file_exists($file)) {
+            if (!file_exists($file)) {
                 return false;
             }
 
