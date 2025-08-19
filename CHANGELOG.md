@@ -1,9 +1,13 @@
 # CHANGELOG
 
+## Version 4.2.14
+
+- Fix: Check suggestions against correct array
+
 ## Version 4.2.13
 
 - Hotfix: namespace typo
-- 
+-
 ## Version 4.2.12
 
 - Fix: retrieving attachment URL in BijlageEntity class
