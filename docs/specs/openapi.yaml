@@ -95,7 +95,7 @@ components:
         repository: {}
         Response:
             properties:
-                WOOverzoeken:
+                WOOVerzoeken:
                     type: array
                     items:
                         $ref: "#/components/schemas/OpenWOO"
