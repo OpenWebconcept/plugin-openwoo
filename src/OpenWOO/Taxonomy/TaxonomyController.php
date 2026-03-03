@@ -7,7 +7,7 @@ class TaxonomyController
     /**
      * Add 'show on' additional explanation.
      */
-    public function addShowOnExplanation(string $taxonomy): void
+    public static function addShowOnExplanation(string $taxonomy): void
     {
         if ('openwoo-show-on' !== $taxonomy) {
             return;
