@@ -110,7 +110,7 @@ class ItemController
         $items = (new OpenWOORepository())
             ->query(apply_filters('yard/openwoo/rest-api/items/query', $this->getPaginatorParams($request)))
             ->query(apply_filters('yard/openwoo/rest-api/items/query', $this->getFilters($request)));
-        
+
         if ($this->showOnParamIsValid($request)) {
             $items->query(OpenWOORepository::addShowOnParameter($request->get_param('source')));
         }
@@ -118,7 +118,7 @@ class ItemController
         $data = $items->all();
 
         return new Response([
-            'WOOverzoeken' => $data
+            'WOOVerzoeken' => $data
         ], $items->getQuery());
     }
 
@@ -195,7 +195,7 @@ class ItemController
         }
 
         return new Response([
-            'WOOverzoeken' => [
+            'WOOVerzoeken' => [
                 $data
             ]
         ], $item->getQuery());
