@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## Version 4.3.0
+
+- Chore: remove wpackagist repository in favor of packagist
+
+## Version 4.2.15
+
+- Fix: Make function static
+
 ## Version 4.2.14
 
 - Fix: Check suggestions against correct array
