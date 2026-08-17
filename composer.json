@@ -20,7 +20,7 @@
   "type": "wordpress-plugin",
   "require": {
     "php": "^7.4|^8.0",
-    "cmb2/cmb2": "2.11.*"
+    "cmb2/cmb2": "^2.11"
   },
   "require-dev": {
     "mockery/mockery": "^1.0",
