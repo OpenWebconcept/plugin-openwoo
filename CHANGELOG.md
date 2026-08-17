@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## Version 4.3.1
+
+- Chore: update cmb2 plugin
+
 ## Version 4.3.0
 
 - Chore: remove wpackagist repository in favor of packagist
@@ -16,6 +20,7 @@
 
 - Hotfix: namespace typo
 -
+
 ## Version 4.2.12
 
 - Fix: retrieving attachment URL in BijlageEntity class
