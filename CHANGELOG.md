@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## Version 4.3.2
+
+- Fix: don't propagate query params
+
 ## Version 4.3.1
 
 - Chore: update cmb2 plugin
