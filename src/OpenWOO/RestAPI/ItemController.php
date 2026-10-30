@@ -50,10 +50,10 @@ class ItemController
      */
     protected function getPaginatorParams(WP_REST_Request $request, int $limit = 10): array
     {
-        return array_merge($request->get_params(), [
+        return [
             'posts_per_page' => (int) $request->get_param('limit') ?: ($request->get_param('per_page') ?: $limit),
             'paged'          => $request->get_param('page') ?: 0
-        ]);
+        ];
     }
 
     /**
@@ -110,7 +110,7 @@ class ItemController
         $items = (new OpenWOORepository())
             ->query(apply_filters('yard/openwoo/rest-api/items/query', $this->getPaginatorParams($request)))
             ->query(apply_filters('yard/openwoo/rest-api/items/query', $this->getFilters($request)));
-        
+
         if ($this->showOnParamIsValid($request)) {
             $items->query(OpenWOORepository::addShowOnParameter($request->get_param('source')));
         }
